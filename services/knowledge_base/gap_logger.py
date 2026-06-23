@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 
-QUEUE_FILE = "learning/learning_queue.json"
+QUEUE_FILE = "services/knowledge_base/learning_queue.json"
 
 
 def log_gap(

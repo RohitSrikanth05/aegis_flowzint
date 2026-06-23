@@ -1,7 +1,6 @@
-from rag.retriever import retrieve
-from rag.confidence import score_retrieval
-
-from learning.gap_logger import log_gap
+from services.knowledge_base.retriever import retrieve
+from services.knowledge_base.confidence import score_retrieval
+from services.knowledge_base.gap_logger import log_gap
 
 
 def process_query(query):

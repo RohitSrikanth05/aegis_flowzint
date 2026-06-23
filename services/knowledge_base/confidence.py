@@ -1,4 +1,4 @@
-from rag.llm_provider import generate
+from services.ollama_client import chat_with_ollama
 
 
 def score_retrieval(query, retrieved_chunks):
@@ -22,7 +22,14 @@ Return ONLY a number from 1 to 10.
 10 = perfect answer available
 """
 
-    response = generate(prompt)
+    response = chat_with_ollama(
+        [
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    )
 
     try:
         score = int(

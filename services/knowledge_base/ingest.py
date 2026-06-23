@@ -10,7 +10,7 @@ collection = client.get_or_create_collection(
 )
 
 with open(
-    "seed_data/shopnova_data.json",
+    "data/shopnova_data.json",
     "r",
     encoding="utf-8"
 ) as f:
