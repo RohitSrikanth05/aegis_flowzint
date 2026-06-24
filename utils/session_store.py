@@ -1,12 +1,14 @@
 # utils/session_store.py
 
-sessions: dict = {}
+_sessions: dict[str, list] = {}
 
 def get_session(session_id: str) -> list:
-    """Return the message history for a session. Creates it if it doesn't exist."""
-    if session_id not in sessions:
-        sessions[session_id] = []
-    return sessions[session_id]
+    if session_id not in _sessions:
+        _sessions[session_id] = []
+    return _sessions[session_id]
+
+def update_session(session_id: str, history: list):
+    _sessions[session_id] = history
 
 def add_to_session(session_id: str, role: str, content: str):
     """Append a message to a session's history."""
