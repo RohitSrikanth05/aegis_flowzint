@@ -1,14 +1,16 @@
 # models/schemas.py
 from pydantic import BaseModel
+from typing import Optional
 
 class ChatRequest(BaseModel):
     message: str
-    session_id: str = "default"   # optional — defaults to "default" for now
+    session_id: Optional[str] = "default"
 
 class ChatResponse(BaseModel):
     reply: str
+    intent: str
     session_id: str
-    intent: str = "UNKNOWN"         # Swathi fills this in on Day 3
-    trust_score: float = 100.0      # Unnathi fills this in on Day 6
-    confidence_score: float = 0.0   # Rohit fills this in on Day 5
-    events: list[str] = []          # running log of what happened this turn
+    trust_score: Optional[float] = None
+    confidence_score: Optional[float] = None
+    mode: Optional[str] = None        # "NORMAL", "CAUTIOUS", or "LOCKDOWN"
+    events: list = []
