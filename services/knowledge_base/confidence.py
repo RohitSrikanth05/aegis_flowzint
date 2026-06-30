@@ -1,11 +1,15 @@
+# services/knowledge_base/confidence.py
 from services.ollama_client import chat_with_ollama
 
 
-def score_retrieval(query, retrieved_chunks):
+async def score_retrieval(query, retrieved_chunks):
 
     context = "\n".join(
         [chunk["content"] for chunk in retrieved_chunks]
     )
+
+    if not context.strip():
+        return 5
 
     prompt = f"""
 User Question:
@@ -22,7 +26,7 @@ Return ONLY a number from 1 to 10.
 10 = perfect answer available
 """
 
-    response = chat_with_ollama(
+    response = await chat_with_ollama(
         [
             {
                 "role": "user",

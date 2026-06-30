@@ -1,3 +1,4 @@
+import asyncio
 import chromadb
 
 client = chromadb.PersistentClient(
@@ -9,26 +10,27 @@ collection = client.get_or_create_collection(
 )
 
 
-def retrieve(query, n_results=3):
-
-    results = collection.query(
-        query_texts=[query],
-        n_results=n_results
-    )
+async def retrieve(query, n_results=3):
+    def _query():
+        return collection.query(
+            query_texts=[query],
+            n_results=n_results
+        )
+        
+    results = await asyncio.to_thread(_query)
 
     formatted = []
 
-    docs = results["documents"][0]
-    metas = results["metadatas"][0]
+    docs = results.get("documents", [[]])[0]
+    metas = results.get("metadatas", [[]])[0]
 
     for doc, meta in zip(docs, metas):
-
         formatted.append(
             {
                 "content": doc,
-                "title": meta["title"],
-                "type": meta["type"],
-                "category": meta["category"]
+                "title": meta.get("title", ""),
+                "type": meta.get("type", ""),
+                "category": meta.get("category", "")
             }
         )
 

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SessionIdRouteImport } from './routes/session.$id'
+import { Route as LearningQueueRouteImport } from './routes/learning-queue'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const SessionIdRoute = SessionIdRouteImport.update({
   path: '/session/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LearningQueueRoute = LearningQueueRouteImport.update({
+  id: '/learning-queue',
+  path: '/learning-queue',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/session/$id': typeof SessionIdRoute
+  '/learning-queue': typeof LearningQueueRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/session/$id': typeof SessionIdRoute
+  '/learning-queue': typeof LearningQueueRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/session/$id': typeof SessionIdRoute
+  '/learning-queue': typeof LearningQueueRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/session/$id'
+  fullPaths: '/' | '/session/$id' | '/learning-queue'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/session/$id'
-  id: '__root__' | '/' | '/session/$id'
+  to: '/' | '/session/$id' | '/learning-queue'
+  id: '__root__' | '/' | '/session/$id' | '/learning-queue'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SessionIdRoute: typeof SessionIdRoute
+  LearningQueueRoute: typeof LearningQueueRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SessionIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/learning-queue': {
+      id: '/learning-queue'
+      path: '/learning-queue'
+      fullPath: '/learning-queue'
+      preLoaderRoute: typeof LearningQueueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SessionIdRoute: SessionIdRoute,
+  LearningQueueRoute: LearningQueueRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

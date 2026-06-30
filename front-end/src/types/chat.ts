@@ -7,4 +7,9 @@ export interface ChatMessage {
   content: string;
   tone?: ChatTone;
   timestamp: string;
+  // Live backend fields (optional, only on bot messages)
+  intent?: string;
+  trustScore?: number;
+  confidenceScore?: number;
+  mode?: string;
 }

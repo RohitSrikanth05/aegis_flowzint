@@ -32,14 +32,15 @@ class TrustScorer:
 
     def initialize_session(self, session_id: str) -> int:
         """Initialize a new session with trust score 100."""
-        self._sessions[session_id] = 100
+        from utils.database import set_session_score_and_mode
+        set_session_score_and_mode(session_id, 100, "NORMAL")
         return 100
 
     def get_score(self, session_id: str) -> int:
         """Get current trust score for a session (default 100 if not initialized)."""
-        if session_id not in self._sessions:
-            return self.initialize_session(session_id)
-        return self._sessions[session_id]
+        from utils.database import get_session_score_and_mode
+        score, _ = get_session_score_and_mode(session_id)
+        return score
 
     def apply_threat_deduction(self, session_id: str, threat_types: list[str]) -> dict:
         """
@@ -51,14 +52,16 @@ class TrustScorer:
             self.THREAT_DEDUCTIONS.get(threat, 0) for threat in threat_types
         )
         score_after = max(0, score_before - total_deduction)
-        self._sessions[session_id] = score_after
+        mode = self.get_mode(score_after)
+        from utils.database import set_session_score_and_mode
+        set_session_score_and_mode(session_id, score_after, mode)
 
         return {
             "score_before": score_before,
             "threats_deducted": threat_types,
             "total_deduction": total_deduction,
             "score_after": score_after,
-            "mode": self.get_mode(score_after),
+            "mode": mode,
         }
 
     def apply_clean_message_recovery(self, session_id: str) -> dict:
@@ -68,13 +71,15 @@ class TrustScorer:
         """
         score_before = self.get_score(session_id)
         score_after = min(100, score_before + self.CLEAN_MESSAGE_RECOVERY)
-        self._sessions[session_id] = score_after
+        mode = self.get_mode(score_after)
+        from utils.database import set_session_score_and_mode
+        set_session_score_and_mode(session_id, score_after, mode)
 
         return {
             "score_before": score_before,
             "recovery_amount": self.CLEAN_MESSAGE_RECOVERY,
             "score_after": score_after,
-            "mode": self.get_mode(score_after),
+            "mode": mode,
         }
 
     def get_mode(self, score: int) -> str:
@@ -93,7 +98,8 @@ class TrustScorer:
 
     def reset_session(self, session_id: str) -> int:
         """Reset a session's trust score back to 100."""
-        self._sessions[session_id] = 100
+        from utils.database import set_session_score_and_mode
+        set_session_score_and_mode(session_id, 100, "NORMAL")
         return 100
 
     def update_score(self, current_score, threats):

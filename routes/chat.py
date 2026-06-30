@@ -11,6 +11,9 @@ from services.trust_engine.scorer import TrustScorer
 from services.trust_engine.logger import TrustLogger
 from services.trust_engine.escalation import TrustEscalation
 
+# Rohit's RAG pipeline
+from services.knowledge_base.pipeline import process_query
+
 router = APIRouter()
 
 # One instance per application (they manage state per session_id internally)
@@ -18,6 +21,22 @@ detector = TrustDetector()
 scorer = TrustScorer()
 logger = TrustLogger()
 escalation = TrustEscalation()
+
+# ── Intent-specific system prompt addons ─────────────────────────────────────
+INTENT_ADDONS = {
+    "SALES": (
+        "Focus on showcasing ShopNova products, pricing, and upgrade benefits. "
+        "Be enthusiastic and helpful about purchases and plans."
+    ),
+    "SUPPORT": (
+        "Focus on resolving technical issues, answering how-to questions, and "
+        "providing clear step-by-step guidance."
+    ),
+    "CARE": (
+        "Express empathy and patience. Acknowledge the customer's frustration. "
+        "Help with refunds, complaints, and account issues with care."
+    ),
+}
 
 
 @router.post("/chat", response_model=ChatResponse)
@@ -54,10 +73,40 @@ async def chat_endpoint(request: ChatRequest):
     if mode != "NORMAL":
         events.append(f"Session mode: {mode}")
 
-    # ── 4. Get mode-specific system prompt ────────────────────────────────
-    system_prompt = escalation.get_system_prompt(mode)
+    # ── 4. Run RAG pipeline concurrently with intent classification ───────
+    try:
+        rag_result, intent = await asyncio.gather(
+            process_query(user_message),
+            classify_intent(user_message),
+        )
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Pipeline error: {str(e)}")
 
-    # ── 5. Build conversation history with system prompt injected ─────────
+    confidence_score = rag_result.get("confidence")
+    retrieved_chunks = rag_result.get("retrieved_chunks", [])
+    needs_learning = rag_result.get("needs_learning", False)
+    learning_item = rag_result.get("learning_item")
+
+    if needs_learning and learning_item:
+        events.append(f"Knowledge gap logged for learning: '{user_message[:60]}'")
+
+    if confidence_score is not None:
+        events.append(f"RAG confidence: {confidence_score}/10")
+
+    # ── 5. Build context string from RAG chunks ───────────────────────────
+    rag_context = ""
+    if retrieved_chunks:
+        context_lines = []
+        for chunk in retrieved_chunks:
+            context_lines.append(f"[{chunk.get('title', 'Info')}]: {chunk.get('content', '')}")
+        rag_context = "\nRelevant ShopNova Knowledge:\n" + "\n".join(context_lines) + "\n"
+
+    # ── 6. Get mode-specific system prompt with intent + context ──────────
+    base_system_prompt = escalation.get_system_prompt(mode)
+    intent_addon = INTENT_ADDONS.get(intent, "")
+    system_prompt = f"{base_system_prompt}\n\n{intent_addon}\n{rag_context}".strip()
+
+    # ── 7. Build conversation history with system prompt injected ─────────
     history = get_session(session_id)
     messages_with_system = (
         [{"role": "system", "content": system_prompt}]
@@ -65,27 +114,24 @@ async def chat_endpoint(request: ChatRequest):
         + [{"role": "user", "content": user_message}]
     )
 
-    # ── 6. LLM reply + intent classification concurrently ─────────────────
+    # ── 8. Get LLM reply ──────────────────────────────────────────────────
     try:
-        reply, intent = await asyncio.gather(
-            chat_with_ollama(messages_with_system),
-            classify_intent(user_message),
-        )
+        reply = await chat_with_ollama(messages_with_system)
     except Exception as e:
         raise HTTPException(status_code=502, detail=f"Ollama error: {str(e)}")
 
-    # ── 7. Persist conversation history (without system prompt) ───────────
+    # ── 9. Persist conversation history (without system prompt) ───────────
     history.append({"role": "user", "content": user_message})
     history.append({"role": "assistant", "content": reply})
     update_session(session_id, history)
 
-    # ── 8. Return full response ────────────────────────────────────────────
+    # ── 10. Return full response ──────────────────────────────────────────
     return ChatResponse(
         reply=reply,
         intent=intent,
         session_id=session_id,
         trust_score=trust_score,
-        confidence_score=None,      # Rohit's RAG fills this later
+        confidence_score=float(confidence_score) if confidence_score is not None else None,
         mode=mode,
         events=events,
     )

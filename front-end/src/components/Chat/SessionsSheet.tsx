@@ -1,10 +1,12 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { History, MessageSquare, Plus, Trash2, Shield } from "lucide-react";
+import { History, MessageSquare, Plus, Trash2, Shield, RotateCcw, Brain } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
 import { useSessions } from "@/hooks/useSessions";
 import { motion } from "framer-motion";
 import { useState } from "react";
+
+const API_BASE = "http://localhost:8000";
 
 function timeAgo(ts: number) {
   const s = Math.floor((Date.now() - ts) / 1000);
@@ -81,7 +83,34 @@ export function SessionsSheet({ activeId }: { activeId?: string }) {
           )}
         </div>
 
-        <ScrollArea className="h-[calc(100vh-148px)]">
+        {/* Admin links */}
+        <div className="border-b border-white/10 px-5 py-3 flex flex-col gap-2">
+          <a
+            href="/learning-queue"
+            className="flex items-center gap-2 rounded-lg border border-indigo-500/20 bg-indigo-500/[0.04] px-3 py-2 text-xs font-medium text-indigo-300 transition hover:bg-indigo-500/10"
+          >
+            <Brain className="h-3.5 w-3.5" />
+            Knowledge Learning Queue
+          </a>
+          <button
+            onClick={async () => {
+              if (!confirm("Reset all sessions and trust scores? This cannot be undone.")) return;
+              try {
+                await fetch(`${API_BASE}/session/reset`, { method: "POST" });
+                clear();
+                alert("All sessions and trust scores have been reset.");
+              } catch {
+                alert("Could not reach backend to reset sessions.");
+              }
+            }}
+            className="flex items-center gap-2 rounded-lg border border-rose-500/20 bg-rose-500/[0.04] px-3 py-2 text-xs font-medium text-rose-300 transition hover:bg-rose-500/10"
+          >
+            <RotateCcw className="h-3.5 w-3.5" />
+            Reset Demo
+          </button>
+        </div>
+
+        <ScrollArea className="h-[calc(100vh-220px)]">
           <div className="space-y-1 p-3">
             {sessions.length === 0 && (
               <div className="px-3 py-12 text-center">
