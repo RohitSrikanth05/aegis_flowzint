@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+
+# Chroma DB
+db/
+*/chroma/
+
+# Local history
+.history/
+
+# Environment files
+.env
+
+# VS Code
+.vscode/
+
+# Logs
+*.log

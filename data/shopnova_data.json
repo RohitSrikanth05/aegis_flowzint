@@ -1,0 +1,58 @@
+[
+{
+"id": "p1",
+"type": "product",
+"category": "audio",
+"title": "ShopNova AirPods X",
+"content": "Wireless earbuds with active noise cancellation, 30-hour battery life, Bluetooth 5.3, and USB-C fast charging."
+},
+{
+"id": "p2",
+"type": "product",
+"category": "laptop",
+"title": "ShopNova UltraBook Pro",
+"content": "14-inch laptop with Intel Core i7 processor, 16GB RAM, 512GB SSD, and 12-hour battery life."
+},
+{
+"id": "p3",
+"type": "product",
+"category": "mobile",
+"title": "NovaPhone S24",
+"content": "Smartphone with 6.7-inch AMOLED display, 256GB storage, 5000mAh battery, and 50MP camera."
+},
+{
+"id": "faq1",
+"type": "faq",
+"category": "returns",
+"title": "Return Window",
+"content": "Customers may return products within 30 days of delivery if the item is unused and in original packaging."
+},
+{
+"id": "faq2",
+"type": "faq",
+"category": "shipping",
+"title": "Shipping Time",
+"content": "Standard shipping takes 3 to 5 business days. Express shipping takes 1 to 2 business days."
+},
+{
+"id": "faq3",
+"type": "faq",
+"category": "warranty",
+"title": "Warranty Coverage",
+"content": "Most electronics sold by ShopNova include a one-year manufacturer warranty."
+},
+{
+"id": "policy1",
+"type": "refund_policy",
+"category": "refunds",
+"title": "Refund Processing",
+"content": "Approved refunds are processed within 5 to 7 business days after inspection."
+},
+{
+"id": "policy2",
+"type": "shipping_policy",
+"category": "shipping",
+"title": "Shipping Coverage",
+"content": "ShopNova ships across India and provides tracking information for all orders."
+}
+]

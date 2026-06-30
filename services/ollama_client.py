@@ -40,7 +40,7 @@ async def classify_intent(user_message: str) -> str:
         "- SALES: buying, pricing, plans, upgrades, discounts, product inquiries\n"
         "- SUPPORT: technical issues, bugs, errors, how-to questions, troubleshooting\n"
         "- CARE: complaints, frustration, refunds, cancellations, account issues, emotional distress\n\n"
-        "Reply with ONLY the category label — no explanation, no punctuation, nothing else.\n\n"
+        "Reply with ONLY the category label - no explanation, no punctuation, nothing else.\n\n"
         f"User message: {user_message}"
     )
 
@@ -58,7 +58,7 @@ async def classify_intent(user_message: str) -> str:
         data = response.json()
         raw_label = data["message"]["content"].strip().upper()
 
-    # Sanitise — if the model adds extra words, extract just the label
+    # Sanitise - if the model adds extra words, extract just the label
     for label in ["SALES", "SUPPORT", "CARE"]:
         if label in raw_label:
             return label
