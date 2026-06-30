@@ -9,10 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LearningQueueRouteImport } from './routes/learning-queue'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SessionIdRouteImport } from './routes/session.$id'
-import { Route as LearningQueueRouteImport } from './routes/learning-queue'
 
+const LearningQueueRoute = LearningQueueRouteImport.update({
+  id: '/learning-queue',
+  path: '/learning-queue',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -23,44 +28,46 @@ const SessionIdRoute = SessionIdRouteImport.update({
   path: '/session/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LearningQueueRoute = LearningQueueRouteImport.update({
-  id: '/learning-queue',
-  path: '/learning-queue',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/session/$id': typeof SessionIdRoute
   '/learning-queue': typeof LearningQueueRoute
+  '/session/$id': typeof SessionIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/session/$id': typeof SessionIdRoute
   '/learning-queue': typeof LearningQueueRoute
+  '/session/$id': typeof SessionIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/session/$id': typeof SessionIdRoute
   '/learning-queue': typeof LearningQueueRoute
+  '/session/$id': typeof SessionIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/session/$id' | '/learning-queue'
+  fullPaths: '/' | '/learning-queue' | '/session/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/session/$id' | '/learning-queue'
-  id: '__root__' | '/' | '/session/$id' | '/learning-queue'
+  to: '/' | '/learning-queue' | '/session/$id'
+  id: '__root__' | '/' | '/learning-queue' | '/session/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  SessionIdRoute: typeof SessionIdRoute
   LearningQueueRoute: typeof LearningQueueRoute
+  SessionIdRoute: typeof SessionIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/learning-queue': {
+      id: '/learning-queue'
+      path: '/learning-queue'
+      fullPath: '/learning-queue'
+      preLoaderRoute: typeof LearningQueueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -75,21 +82,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SessionIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/learning-queue': {
-      id: '/learning-queue'
-      path: '/learning-queue'
-      fullPath: '/learning-queue'
-      preLoaderRoute: typeof LearningQueueRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  SessionIdRoute: SessionIdRoute,
   LearningQueueRoute: LearningQueueRoute,
+  SessionIdRoute: SessionIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
