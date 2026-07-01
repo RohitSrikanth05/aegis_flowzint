@@ -24,6 +24,20 @@ class TrustDetector:
         "override policy"
     ]
 
+    PROMPT_EXTRACTION = [
+        "system prompt",
+        "your system prompt",
+        "hidden prompt",
+        "hidden instructions",
+        "internal instructions",
+        "developer prompt",
+        "what is your prompt",
+        "tell me your prompt",
+        "show me your prompt",
+        "what are your instructions",
+        "tell me your instructions",
+    ]
+
     JAILBREAK = [
         "pretend you are",
         "developer mode",
@@ -92,6 +106,15 @@ class TrustDetector:
         msg = message.lower()
 
         for keyword in self.PROMPT_INJECTION:
+            if keyword in msg:
+                return True
+
+        return False
+
+    def detect_prompt_extraction(self, message):
+        msg = message.lower()
+
+        for keyword in self.PROMPT_EXTRACTION:
             if keyword in msg:
                 return True
 
@@ -175,6 +198,9 @@ class TrustDetector:
 
         if self.detect_prompt_injection(message):
             threats.append("prompt_injection")
+
+        if self.detect_prompt_extraction(message):
+            threats.append("prompt_extraction")
 
         if self.detect_jailbreak(message):
             threats.append("jailbreak")

@@ -38,6 +38,11 @@ INTENT_ADDONS = {
     ),
 }
 
+PROMPT_EXTRACTION_REPLY = (
+    "I can’t provide hidden prompts, system instructions, or internal policy details. "
+    "If you want, I can still help with the task or question you have."
+)
+
 
 @router.post("/chat", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):
@@ -50,6 +55,35 @@ async def chat_endpoint(request: ChatRequest):
 
     # ── 2. Threat detection ───────────────────────────────────────────────
     threats = detector.analyze(user_message)
+
+    # Prompt-extraction attempts are refused before any model call.
+    if (
+        "prompt_injection" in threats
+        or "prompt_extraction" in threats
+        or "credential_theft" in threats
+    ):
+        result = scorer.apply_threat_deduction(session_id, threats)
+        logger.log_threat_detection(
+            session_id, user_message, threats,
+            result["score_before"], result["score_after"]
+        )
+        events.append("Prompt extraction request blocked")
+        events.append(f"Threats detected: {', '.join(threats)}")
+        events.append(f"Trust score dropped: {result['score_before']} → {result['score_after']}")
+        history = get_session(session_id)
+        history.append({"role": "user", "content": user_message})
+        history.append({"role": "assistant", "content": PROMPT_EXTRACTION_REPLY})
+        update_session(session_id, history)
+
+        return ChatResponse(
+            reply=PROMPT_EXTRACTION_REPLY,
+            intent="UNKNOWN",
+            session_id=session_id,
+            trust_score=result["score_after"],
+            confidence_score=0.0,
+            mode=result["mode"],
+            events=events,
+        )
 
     # ── 3. Trust scoring ──────────────────────────────────────────────────
     if threats:

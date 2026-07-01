@@ -7,16 +7,37 @@ import { TypingIndicator } from "./TypingIndicator";
 export function ChatMessages({ messages, typing }: { messages: ChatMessage[]; typing: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState<ChatMessage[]>([]);
+  const renderedCountRef = useRef(0);
 
   useEffect(() => {
-    setVisible([]);
-    let i = 0;
-    const id = setInterval(() => {
-      i += 1;
-      setVisible(messages.slice(0, i));
-      if (i >= messages.length) clearInterval(id);
-    }, 600);
-    return () => clearInterval(id);
+    if (messages.length < renderedCountRef.current) {
+      renderedCountRef.current = messages.length;
+      setVisible(messages);
+      return;
+    }
+
+    if (messages.length === renderedCountRef.current) {
+      return;
+    }
+
+    const nextMessages = messages.slice(renderedCountRef.current);
+    if (nextMessages.length === 0) {
+      renderedCountRef.current = messages.length;
+      return;
+    }
+
+    let index = 0;
+    const intervalId = setInterval(() => {
+      const nextMessage = nextMessages[index];
+      index += 1;
+      renderedCountRef.current += 1;
+      setVisible((current) => [...current, nextMessage]);
+      if (index >= nextMessages.length) {
+        clearInterval(intervalId);
+      }
+    }, 250);
+
+    return () => clearInterval(intervalId);
   }, [messages]);
 
   useEffect(() => {

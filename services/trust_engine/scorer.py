@@ -7,6 +7,7 @@ class TrustScorer:
     # Threat deduction amounts (from Day 5 plan)
     THREAT_DEDUCTIONS = {
         "prompt_injection": 25,
+        "prompt_extraction": 25,
         "jailbreak": 30,
         "refund_abuse": 15,
         "discount_probing": 10,
