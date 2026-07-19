@@ -1,1 +1,161 @@
-[]
+[
+    {
+        "id": "a275f5e9-5b79-4468-864b-e81579a2a3c5",
+        "question": "Do you sell gaming chairs?",
+        "retrieved_context": [],
+        "confidence": 2,
+        "status": "Approved",
+        "timestamp": "2026-06-24 09:59:13.251713"
+    },
+    {
+        "id": "0261d285-8025-488b-9bb1-96b02c96862e",
+        "question": "Do you sell racing simulators?",
+        "retrieved_context": [
+            {
+                "content": "Nova Sport Watch available on ShopNova India. Premium wearables product with warranty support. Price ranges between \u20b92,999 and \u20b989,999 depending on configuration.",
+                "title": "Nova Sport Watch",
+                "type": "product",
+                "category": "wearables",
+                "distance": 1.3331856727600098
+            },
+            {
+                "content": "Nova Gaming Mouse available on ShopNova India. Premium accessories product with warranty support. Price ranges between \u20b92,999 and \u20b989,999 depending on configuration.",
+                "title": "Nova Gaming Mouse",
+                "type": "product",
+                "category": "accessories",
+                "distance": 1.376190423965454
+            },
+            {
+                "content": "NovaWatch Pro available on ShopNova India. Premium wearables product with warranty support. Price ranges between \u20b92,999 and \u20b989,999 depending on configuration.",
+                "title": "NovaWatch Pro",
+                "type": "product",
+                "category": "wearables",
+                "distance": 1.4388352632522583
+            }
+        ],
+        "confidence": 0,
+        "status": "Approved",
+        "timestamp": "2026-06-24 10:36:07.392518",
+        "drafted_entry": "Question: Do you sell racing simulators?. This topic was reviewed and approved by ShopNova support."
+    },
+    {
+        "id": "c9b10543-b2e2-42ba-b84b-c016e62201bb",
+        "question": "Can I return a product?",
+        "retrieved_context": [
+            {
+                "content": "Opened products may only be returned if they are defective, damaged, or incorrectly delivered.",
+                "title": "Can I return opened products?",
+                "type": "faq",
+                "category": "support",
+                "distance": 0.5861632823944092
+            },
+            {
+                "content": "Products may be returned within 30 days if unused and in original packaging.",
+                "title": "Return Policy",
+                "type": "policy",
+                "category": "policy",
+                "distance": 0.6613636016845703
+            },
+            {
+                "content": "Refunds are processed within 5 to 7 business days after the returned product passes quality inspection.",
+                "title": "How do refunds work?",
+                "type": "faq",
+                "category": "support",
+                "distance": 1.0428186655044556
+            }
+        ],
+        "confidence": 4,
+        "status": "pending review",
+        "timestamp": "2026-06-24 11:08:52.871894"
+    },
+    {
+        "id": "5cb2ffc5-244c-4a7b-be75-bc572855935d",
+        "question": "How long does delivery take?",
+        "retrieved_context": [
+            {
+                "content": "Standard shipping takes 3 to 5 business days. Express shipping takes 1 to 2 business days in major cities.",
+                "title": "How long does shipping take?",
+                "type": "faq",
+                "category": "support",
+                "distance": 0.7822573184967041
+            },
+            {
+                "content": "Express shipping prioritizes order processing and delivery, reducing delivery times to 1 to 2 business days.",
+                "title": "How does express shipping work?",
+                "type": "faq",
+                "category": "support",
+                "distance": 0.9217413663864136
+            },
+            {
+                "content": "Standard shipping requires 3 to 5 business days while express shipping requires 1 to 2 business days.",
+                "title": "Shipping Policy",
+                "type": "policy",
+                "category": "policy",
+                "distance": 0.9265342950820923
+            }
+        ],
+        "confidence": 2,
+        "status": "pending review",
+        "timestamp": "2026-06-24 11:09:29.454006"
+    },
+    {
+        "id": "1d2084a9-d5ce-48b0-b6e2-0648183d8d0b",
+        "question": "Do you sell office chairs?",
+        "retrieved_context": [
+            {
+                "content": "Cash on delivery is available for selected products and serviceable locations.",
+                "title": "Do you offer cash on delivery?",
+                "type": "faq",
+                "category": "support",
+                "distance": 1.4534599781036377
+            },
+            {
+                "content": "Cash on Delivery is available for selected products and regions.",
+                "title": "COD Policy",
+                "type": "policy",
+                "category": "policy",
+                "distance": 1.4740086793899536
+            },
+            {
+                "content": "ShopNova primarily sells new products, though certified refurbished products may occasionally be listed.",
+                "title": "Do you sell refurbished devices?",
+                "type": "faq",
+                "category": "support",
+                "distance": 1.4764227867126465
+            }
+        ],
+        "confidence": 0,
+        "status": "pending review",
+        "timestamp": "2026-06-24 11:10:40.213287"
+    },
+    {
+        "id": "ab24a276-2a52-4c6c-9bc2-a6ca60a00296",
+        "question": "",
+        "retrieved_context": [
+            {
+                "content": "Business customers can request quotations and volume pricing through ShopNova's enterprise sales team.",
+                "title": "Can businesses place bulk orders?",
+                "type": "faq",
+                "category": "support",
+                "distance": 1.7615292072296143
+            },
+            {
+                "content": "Cash on Delivery is available for selected products and regions.",
+                "title": "COD Policy",
+                "type": "policy",
+                "category": "policy",
+                "distance": 1.7726187705993652
+            },
+            {
+                "content": "Scheduled delivery is available in selected cities for eligible products.",
+                "title": "Can I schedule delivery?",
+                "type": "faq",
+                "category": "support",
+                "distance": 1.7746343612670898
+            }
+        ],
+        "confidence": 0,
+        "status": "pending review",
+        "timestamp": "2026-06-25 00:03:39.525853"
+    }
+]

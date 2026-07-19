@@ -1,49 +1,106 @@
-from services.ollama_client import chat_with_ollama
+import re
+from difflib import SequenceMatcher
+
+
+def normalize(text):
+    if not text:
+        return ""
+
+    return re.sub(
+        r"[^a-z0-9\s]",
+        "",
+        str(text).lower()
+    )
+
+
+def tokenize(text):
+    return set(normalize(text).split())
+
+
+def similarity(a, b):
+    return SequenceMatcher(
+        None,
+        normalize(a),
+        normalize(b)
+    ).ratio()
 
 
 def score_retrieval(query, retrieved_chunks):
 
-    context = "\n".join(
-        [chunk["content"] for chunk in retrieved_chunks]
-    )
+    if not retrieved_chunks:
+        return 0
 
-    prompt = f"""
-User Question:
-{query}
+    query_tokens = tokenize(query)
 
-Retrieved Context:
-{context}
+    best_score = 0
 
-Rate how confident you are that the retrieved context can answer the question.
+    for chunk in retrieved_chunks:
 
-Return ONLY a number from 1 to 10.
-
-1 = no useful information
-10 = perfect answer available
-"""
-
-    response = chat_with_ollama(
-        [
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
-    )
-
-    try:
-        score = int(
-            "".join(
-                filter(str.isdigit, response)
-            )[:2]
+        # -------------------------------
+        # 1. Semantic similarity (60%)
+        # -------------------------------
+        semantic_score = max(
+            0,
+            (1 - chunk["distance"]) * 10
         )
 
-        score = max(
-            1,
-            min(score, 10)
+        # -------------------------------
+        # 2. Title similarity (20%)
+        # -------------------------------
+        title_similarity = similarity(
+            query,
+            chunk.get("title", "")
         )
 
-    except:
-        score = 5
+        title_score = title_similarity * 10
 
-    return score
+        # -------------------------------
+        # 3. Keyword overlap (15%)
+        # -------------------------------
+        keyword_score = 0
+
+        keywords = chunk.get("keywords")
+
+        if keywords:
+
+            keyword_tokens = tokenize(keywords)
+
+            overlap = len(
+                query_tokens & keyword_tokens
+            )
+
+            if len(keyword_tokens) > 0:
+
+                keyword_score = (
+                    overlap /
+                    len(keyword_tokens)
+                ) * 10
+
+        # -------------------------------
+        # 4. Exact title bonus (5%)
+        # -------------------------------
+        exact_bonus = 0
+
+        if normalize(query) == normalize(
+            chunk.get("title", "")
+        ):
+            exact_bonus = 10
+
+        # -------------------------------
+        # Final weighted score
+        # -------------------------------
+        score = (
+            semantic_score * 0.60 +
+            title_score * 0.20 +
+            keyword_score * 0.15 +
+            exact_bonus * 0.05
+        )
+
+        best_score = max(
+            best_score,
+            score
+        )
+
+    return round(
+        min(best_score, 10)
+    )

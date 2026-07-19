@@ -1,58 +1,735 @@
 [
-{
-"id": "p1",
-"type": "product",
-"category": "audio",
-"title": "ShopNova AirPods X",
-"content": "Wireless earbuds with active noise cancellation, 30-hour battery life, Bluetooth 5.3, and USB-C fast charging."
-},
-{
-"id": "p2",
-"type": "product",
-"category": "laptop",
-"title": "ShopNova UltraBook Pro",
-"content": "14-inch laptop with Intel Core i7 processor, 16GB RAM, 512GB SSD, and 12-hour battery life."
-},
-{
-"id": "p3",
-"type": "product",
-"category": "mobile",
-"title": "NovaPhone S24",
-"content": "Smartphone with 6.7-inch AMOLED display, 256GB storage, 5000mAh battery, and 50MP camera."
-},
-{
-"id": "faq1",
-"type": "faq",
-"category": "returns",
-"title": "Return Window",
-"content": "Customers may return products within 30 days of delivery if the item is unused and in original packaging."
-},
-{
-"id": "faq2",
-"type": "faq",
-"category": "shipping",
-"title": "Shipping Time",
-"content": "Standard shipping takes 3 to 5 business days. Express shipping takes 1 to 2 business days."
-},
-{
-"id": "faq3",
-"type": "faq",
-"category": "warranty",
-"title": "Warranty Coverage",
-"content": "Most electronics sold by ShopNova include a one-year manufacturer warranty."
-},
-{
-"id": "policy1",
-"type": "refund_policy",
-"category": "refunds",
-"title": "Refund Processing",
-"content": "Approved refunds are processed within 5 to 7 business days after inspection."
-},
-{
-"id": "policy2",
-"type": "shipping_policy",
-"category": "shipping",
-"title": "Shipping Coverage",
-"content": "ShopNova ships across India and provides tracking information for all orders."
-}
+    {
+        "id": "audio_p1",
+        "type": "product",
+        "category": "audio",
+        "title": "NovaBuds Lite",
+        "content": "Product Name: NovaBuds Lite\nBrand: Nova\nSeries: NovaBuds\nModel: Lite\nCategory: Audio\nDescription: Affordable true wireless earbuds offering balanced sound, long battery life and reliable everyday performance.\nPrice: ₹2,999\nRating: 4.4/5 (1842 verified reviews)\nAvailability: In Stock\nWarranty: 1 Year\nLaunch Year: 2025\nAvailable Colours: Black, White, Blue\nKey Specifications: 10 mm Dynamic Drivers, Bluetooth 5.4, 30-hour Battery, USB-C Fast Charging, IPX5 Water Resistance\nRecommended For: Students, Music, Daily Commute\nSearch Keywords: earbuds, tws, budget, bluetooth, wireless audio",
+        "price": 2999,
+        "stock": 56,
+        "rating": 4.4
+    },
+    {
+        "id": "audio_p2",
+        "type": "product",
+        "category": "audio",
+        "title": "NovaBuds Pro",
+        "content": "Product Name: NovaBuds Pro\nBrand: Nova\nSeries: NovaBuds\nModel: Pro\nCategory: Audio\nDescription: Premium wireless earbuds with adaptive active noise cancellation and immersive high-resolution audio.\nPrice: ₹7,999\nRating: 4.8/5 (6148 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Silver, Purple\nKey Specifications: Adaptive ANC, Hi-Res Audio, Wireless Charging, Bluetooth 5.4, 40-hour Battery\nRecommended For: Professionals, Travel, Music Enthusiasts\nSearch Keywords: premium earbuds, anc, noise cancellation, hi-res audio, wireless",
+        "price": 7999,
+        "stock": 37,
+        "rating": 4.8
+    },
+    {
+        "id": "audio_p3",
+        "type": "product",
+        "category": "audio",
+        "title": "NovaSound Mini",
+        "content": "Product Name: NovaSound Mini\nBrand: Nova\nSeries: NovaSound\nModel: Mini\nCategory: Audio\nDescription: Compact Bluetooth speaker designed for portable entertainment with surprisingly powerful sound.\nPrice: ₹3,499\nRating: 4.5/5 (2187 verified reviews)\nAvailability: In Stock\nWarranty: 1 Year\nLaunch Year: 2025\nAvailable Colours: Black, Blue, Red\nKey Specifications: 20W Output, Bluetooth 5.3, IPX7 Waterproof, 15-hour Battery, USB-C Charging\nRecommended For: Travel, Outdoor, Casual Listening\nSearch Keywords: speaker, portable, bluetooth speaker, waterproof, travel",
+        "price": 3499,
+        "stock": 42,
+        "rating": 4.5
+    },
+    {
+        "id": "audio_p4",
+        "type": "product",
+        "category": "audio",
+        "title": "NovaSound Max",
+        "content": "Product Name: NovaSound Max\nBrand: Nova\nSeries: NovaSound\nModel: Max\nCategory: Audio\nDescription: Large portable Bluetooth speaker delivering room-filling sound with deep bass and extended battery life.\nPrice: ₹8,999\nRating: 4.8/5 (4021 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Grey\nKey Specifications: 80W Output, Bluetooth 5.4, 24-hour Battery, Stereo Pairing, IP67 Protection\nRecommended For: Parties, Outdoor Events, Entertainment\nSearch Keywords: party speaker, bass, portable speaker, wireless, bluetooth",
+        "price": 8999,
+        "stock": 25,
+        "rating": 4.8
+    },
+    {
+        "id": "audio_p5",
+        "type": "product",
+        "category": "audio",
+        "title": "Nova ANC Headphones",
+        "content": "Product Name: Nova ANC Headphones\nBrand: Nova\nSeries: NovaHead\nModel: ANC\nCategory: Audio\nDescription: Over-ear wireless headphones featuring adaptive ANC and studio-inspired sound tuning.\nPrice: ₹11,999\nRating: 4.7/5 (3561 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Silver\nKey Specifications: Adaptive ANC, 50-hour Battery, Hi-Res Audio, USB-C, Multipoint Pairing\nRecommended For: Work, Travel, Music\nSearch Keywords: headphones, anc, wireless, travel, office",
+        "price": 11999,
+        "stock": 29,
+        "rating": 4.7
+    },
+    {
+        "id": "audio_p6",
+        "type": "product",
+        "category": "audio",
+        "title": "Nova Studio Headphones",
+        "content": "Product Name: Nova Studio Headphones\nBrand: Nova\nSeries: NovaHead\nModel: Studio\nCategory: Audio\nDescription: Professional wired monitoring headphones built for audio production and accurate sound reproduction.\nPrice: ₹14,999\nRating: 4.9/5 (1863 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Black\nKey Specifications: Studio Drivers, Detachable Cable, High Impedance, Closed Back, Memory Foam Cushions\nRecommended For: Music Production, Editing, Content Creation\nSearch Keywords: studio headphones, music production, editing, monitoring, professional",
+        "price": 14999,
+        "stock": 18,
+        "rating": 4.9
+    },
+    {
+        "id": "audio_p7",
+        "type": "product",
+        "category": "audio",
+        "title": "Nova Speaker X",
+        "content": "Product Name: Nova Speaker X\nBrand: Nova\nSeries: NovaSound\nModel: X\nCategory: Audio\nDescription: Premium smart home speaker combining high-fidelity audio with integrated voice assistant support.\nPrice: ₹15,999\nRating: 4.9/5 (2921 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, White\nKey Specifications: 120W Audio, Wi-Fi, Bluetooth, Smart Assistant, Multi-room Audio\nRecommended For: Home, Smart Living, Entertainment\nSearch Keywords: smart speaker, wifi speaker, home audio, assistant, premium",
+        "price": 15999,
+        "stock": 17,
+        "rating": 4.9
+    },
+    {
+        "id": "audio_p8",
+        "type": "product",
+        "category": "audio",
+        "title": "Nova Party Box",
+        "content": "Product Name: Nova Party Box\nBrand: Nova\nSeries: NovaSound\nModel: Party Box\nCategory: Audio\nDescription: High-power party speaker with dynamic lighting, karaoke support and massive sound output.\nPrice: ₹24,999\nRating: 4.8/5 (1548 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black\nKey Specifications: 160W Output, RGB Lighting, Microphone Input, Bluetooth 5.4, 18-hour Battery\nRecommended For: Parties, Events, Outdoor Entertainment\nSearch Keywords: party, karaoke, speaker, events, bluetooth",
+        "price": 24999,
+        "stock": 11,
+        "rating": 4.8
+    },
+    {
+        "id": "laptop_p1",
+        "type": "product",
+        "category": "laptop",
+        "title": "NovaBook Student",
+        "content": "Product Name: NovaBook Student\nBrand: Nova\nSeries: NovaBook\nModel: Student\nCategory: Laptop\nDescription: Affordable laptop built for students, online learning, programming and everyday productivity.\nPrice: ₹44,999\nRating: 4.5/5 (3214 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2025\nAvailable Colours: Silver, Blue\nKey Specifications: Intel Core i3-1315U, 8GB DDR5 RAM, 512GB NVMe SSD, 14-inch Full HD IPS Display, Wi-Fi 6, Backlit Keyboard, 9-hour Battery\nRecommended For: Students, Programming, Office Work\nSearch Keywords: budget laptop, student laptop, college, coding, office",
+        "price": 44999,
+        "stock": 43,
+        "rating": 4.5
+    },
+    {
+        "id": "laptop_p2",
+        "type": "product",
+        "category": "laptop",
+        "title": "NovaBook Air",
+        "content": "Product Name: NovaBook Air\nBrand: Nova\nSeries: NovaBook\nModel: Air\nCategory: Laptop\nDescription: Thin and lightweight ultrabook designed for portability, long battery life and premium everyday computing.\nPrice: ₹64,999\nRating: 4.7/5 (4172 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Silver, Space Grey, Blue\nKey Specifications: Intel Core Ultra 5, 16GB LPDDR5 RAM, 512GB PCIe Gen4 SSD, 14-inch 2.8K IPS Display, Thunderbolt 4, Fingerprint Reader, 16-hour Battery\nRecommended For: Professionals, Students, Travel\nSearch Keywords: ultrabook, lightweight laptop, portable, office, battery life",
+        "price": 64999,
+        "stock": 34,
+        "rating": 4.7
+    },
+    {
+        "id": "laptop_p3",
+        "type": "product",
+        "category": "laptop",
+        "title": "NovaBook Business",
+        "content": "Product Name: NovaBook Business\nBrand: Nova\nSeries: NovaBook\nModel: Business\nCategory: Laptop\nDescription: Professional business laptop featuring enterprise-grade security, reliability and all-day productivity.\nPrice: ₹79,999\nRating: 4.8/5 (2891 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Black, Silver\nKey Specifications: Intel Core Ultra 7, 16GB DDR5 RAM, 1TB NVMe SSD, 14-inch IPS Display, Windows 11 Pro, Fingerprint Reader, IR Face Unlock\nRecommended For: Business, Corporate, Office\nSearch Keywords: business laptop, office, enterprise, security, windows pro",
+        "price": 79999,
+        "stock": 22,
+        "rating": 4.8
+    },
+    {
+        "id": "laptop_p4",
+        "type": "product",
+        "category": "laptop",
+        "title": "NovaBook Creator",
+        "content": "Product Name: NovaBook Creator\nBrand: Nova\nSeries: NovaBook\nModel: Creator\nCategory: Laptop\nDescription: Creator-focused laptop engineered for professional photo editing, 4K video production, animation and graphic design workflows.\nPrice: ₹114,999\nRating: 4.8/5 (2174 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Graphite, Silver\nKey Specifications: AMD Ryzen AI 9 Processor, NVIDIA RTX 4060 8GB, 32GB DDR5 RAM, 1TB PCIe Gen4 SSD, 15.6-inch 3K OLED Display, 100% DCI-P3 Colour Gamut, SD Card Reader\nRecommended For: Video Editing, Photography, Graphic Design\nSearch Keywords: creator laptop, video editing, photoshop, premiere pro, davinci resolve, oled, rtx",
+        "price": 114999,
+        "stock": 18,
+        "rating": 4.8
+    },
+    {
+        "id": "laptop_p5",
+        "type": "product",
+        "category": "laptop",
+        "title": "NovaBook Gaming",
+        "content": "Product Name: NovaBook Gaming\nBrand: Nova\nSeries: NovaBook\nModel: Gaming\nCategory: Laptop\nDescription: Flagship gaming laptop delivering desktop-class performance for AAA gaming, streaming, AI development and demanding creative workloads.\nPrice: ₹139,999\nRating: 4.9/5 (5128 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Matte Black\nKey Specifications: Intel Core Ultra 9 285H, NVIDIA RTX 5070 Laptop GPU 12GB, 32GB DDR5-6400 RAM, 2TB PCIe Gen4 SSD, 16-inch QHD+ 240Hz IPS Display, Per-Key RGB Keyboard, Wi-Fi 7\nRecommended For: Gaming, Streaming, Machine Learning\nSearch Keywords: gaming laptop, rtx 5070, cuda, deep learning, ai, streaming, 240hz",
+        "price": 139999,
+        "stock": 14,
+        "rating": 4.9
+    },
+    {
+        "id": "laptop_p6",
+        "type": "product",
+        "category": "laptop",
+        "title": "NovaBook AI",
+        "content": "Product Name: NovaBook AI\nBrand: Nova\nSeries: NovaBook\nModel: AI\nCategory: Laptop\nDescription: AI-first laptop designed for local inference, LLM experimentation, software development and next-generation productivity applications.\nPrice: ₹124,999\nRating: 4.9/5 (1846 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Silver, Midnight Blue\nKey Specifications: AMD Ryzen AI 9 HX Processor, Dedicated 50+ TOPS NPU, 32GB LPDDR5X RAM, 2TB PCIe Gen4 SSD, 16-inch 2.8K OLED Display, Wi-Fi 7, Thunderbolt 4\nRecommended For: Artificial Intelligence, Software Development, Data Science\nSearch Keywords: ai laptop, llm, machine learning, python, programming, npu, local inference",
+        "price": 124999,
+        "stock": 17,
+        "rating": 4.9
+    },
+    {
+        "id": "laptop_p7",
+        "type": "product",
+        "category": "laptop",
+        "title": "NovaBook Ultra",
+        "content": "Product Name: NovaBook Ultra\nBrand: Nova\nSeries: NovaBook\nModel: Ultra\nCategory: Laptop\nDescription: Premium flagship ultrabook combining exceptional portability with workstation-level performance for executives and power users.\nPrice: ₹159,999\nRating: 4.9/5 (1628 verified reviews)\nAvailability: Limited Stock\nWarranty: 4 Years\nLaunch Year: 2026\nAvailable Colours: Titanium Grey, Midnight Black\nKey Specifications: Intel Core Ultra 9, 32GB LPDDR5X RAM, 2TB PCIe Gen5 SSD, 16-inch 3.2K OLED Touch Display, Thunderbolt 5, Wi-Fi 7, 18-hour Battery\nRecommended For: Executives, Professionals, Power Users\nSearch Keywords: flagship laptop, premium ultrabook, oled, business, portable, high performance",
+        "price": 159999,
+        "stock": 9,
+        "rating": 4.9
+    },
+    {
+        "id": "laptop_p8",
+        "type": "product",
+        "category": "laptop",
+        "title": "NovaBook Workstation",
+        "content": "Product Name: NovaBook Workstation\nBrand: Nova\nSeries: NovaBook\nModel: Workstation\nCategory: Laptop\nDescription: Professional mobile workstation engineered for CAD, simulation, AI research, engineering and 3D rendering.\nPrice: ₹219,999\nRating: 4.9/5 (937 verified reviews)\nAvailability: Limited Stock\nWarranty: 5 Years\nLaunch Year: 2026\nAvailable Colours: Matte Black\nKey Specifications: Intel Xeon-class Processor, NVIDIA RTX 5000 Ada Professional GPU, 64GB ECC DDR5 RAM, 4TB PCIe Gen5 SSD, 17-inch 4K Mini-LED Display, ISV Certified, Dual Thunderbolt 5\nRecommended For: Engineering, Architecture, 3D Rendering\nSearch Keywords: workstation, cad, solidworks, autocad, blender, rendering, engineering",
+        "price": 219999,
+        "stock": 6,
+        "rating": 4.9
+    },
+    {
+        "id": "laptop_p9",
+        "type": "product",
+        "category": "laptop",
+        "title": "NovaBook Enterprise",
+        "content": "Product Name: NovaBook Enterprise\nBrand: Nova\nSeries: NovaBook\nModel: Enterprise\nCategory: Laptop\nDescription: Enterprise-ready laptop focused on security, remote management, long-term reliability and corporate deployment.\nPrice: ₹99,999\nRating: 4.8/5 (1406 verified reviews)\nAvailability: In Stock\nWarranty: 4 Years On-site\nLaunch Year: 2026\nAvailable Colours: Black, Silver\nKey Specifications: Intel Core Ultra 7, 32GB DDR5 RAM, 1TB PCIe Gen4 SSD, Windows 11 Pro, TPM 2.0, Smart Card Reader, vPro Enterprise\nRecommended For: Corporate IT, Finance, Government\nSearch Keywords: enterprise, corporate, security, vpro, windows pro, business laptop",
+        "price": 99999,
+        "stock": 19,
+        "rating": 4.8
+    },
+    {
+        "id": "mobile_p1",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Lite",
+        "content": "Product Name: NovaPhone Lite\nBrand: Nova\nSeries: NovaPhone\nModel: Lite\nCategory: Mobile\nDescription: Affordable smartphone delivering dependable performance, long battery life and an excellent everyday user experience.\nPrice: ₹14,999\nRating: 4.4/5 (7842 verified reviews)\nAvailability: In Stock\nWarranty: 1 Year\nLaunch Year: 2025\nAvailable Colours: Black, Blue, Mint\nKey Specifications: 6.6-inch FHD+ LCD, 5000mAh Battery, 50MP AI Camera, 6GB RAM, 128GB Storage, 33W Fast Charging\nRecommended For: Students, Daily Use, First Smartphone\nSearch Keywords: budget phone, android, student, battery, value",
+        "price": 14999,
+        "stock": 73,
+        "rating": 4.4
+    },
+    {
+        "id": "mobile_p2",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Neo",
+        "content": "Product Name: NovaPhone Neo\nBrand: Nova\nSeries: NovaPhone\nModel: Neo\nCategory: Mobile\nDescription: Balanced mid-range smartphone combining excellent cameras, smooth performance and all-day battery life.\nPrice: ₹24,999\nRating: 4.6/5 (5936 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Blue, Silver\nKey Specifications: 6.7-inch AMOLED 120Hz, 5500mAh Battery, 8GB RAM, 256GB Storage, 67W Fast Charging, 50MP OIS Camera\nRecommended For: Photography, Entertainment, Everyday Users\nSearch Keywords: midrange phone, amoled, camera, android, 120hz",
+        "price": 24999,
+        "stock": 48,
+        "rating": 4.6
+    },
+    {
+        "id": "mobile_p3",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Edge",
+        "content": "Product Name: NovaPhone Edge\nBrand: Nova\nSeries: NovaPhone\nModel: Edge\nCategory: Mobile\nDescription: Camera-first flagship smartphone designed for photography enthusiasts with professional imaging features.\nPrice: ₹39,999\nRating: 4.8/5 (4381 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Graphite, Titanium, Blue\nKey Specifications: 6.78-inch AMOLED 120Hz Display, 50MP Sony Main Sensor with OIS, 50MP Ultra-Wide Camera, 32MP Selfie Camera, 12GB RAM, 256GB Storage, 80W Fast Charging\nRecommended For: Photography, Content Creation, Travel\nSearch Keywords: camera phone, photography, flagship, android, ois, creator",
+        "price": 39999,
+        "stock": 35,
+        "rating": 4.8
+    },
+    {
+        "id": "mobile_p4",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Max",
+        "content": "Product Name: NovaPhone Max\nBrand: Nova\nSeries: NovaPhone\nModel: Max\nCategory: Mobile\nDescription: Battery-focused smartphone engineered for power users requiring exceptional endurance and dependable performance.\nPrice: ₹34,999\nRating: 4.7/5 (5126 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Blue, Green\nKey Specifications: 6500mAh Battery, 67W Fast Charging, 6.8-inch AMOLED Display, 8GB RAM, 256GB Storage, Stereo Speakers, IP68 Water Resistance\nRecommended For: Business, Travel, Heavy Users\nSearch Keywords: battery phone, long battery, travel, business, power user",
+        "price": 34999,
+        "stock": 41,
+        "rating": 4.7
+    },
+    {
+        "id": "mobile_p5",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Gaming",
+        "content": "Product Name: NovaPhone Gaming\nBrand: Nova\nSeries: NovaPhone\nModel: Gaming\nCategory: Mobile\nDescription: Gaming smartphone optimized for competitive mobile gaming with flagship performance and advanced cooling.\nPrice: ₹49,999\nRating: 4.9/5 (3652 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Matte Black\nKey Specifications: Snapdragon Elite-class Processor, 16GB LPDDR5X RAM, 512GB UFS 4.1 Storage, 6.8-inch AMOLED 165Hz Display, 6000mAh Battery, 120W Fast Charging, Vapor Chamber Cooling\nRecommended For: Gaming, Streaming, Esports\nSearch Keywords: gaming phone, 165hz, snapdragon, esports, high performance, streaming",
+        "price": 49999,
+        "stock": 22,
+        "rating": 4.9
+    },
+    {
+        "id": "mobile_p6",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Ultra",
+        "content": "Product Name: NovaPhone Ultra\nBrand: Nova\nSeries: NovaPhone\nModel: Ultra\nCategory: Mobile\nDescription: Ultimate flagship smartphone delivering top-tier cameras, display technology and AI-powered productivity features.\nPrice: ₹79,999\nRating: 4.9/5 (2978 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Titanium Black, Titanium Silver\nKey Specifications: 6.9-inch LTPO AMOLED 144Hz, Snapdragon Elite-class Processor, 16GB LPDDR5X RAM, 512GB UFS 4.1 Storage, 200MP Main Camera, 100W Wired Charging, 50W Wireless Charging\nRecommended For: Professionals, Photography, Power Users\nSearch Keywords: ultra flagship, 200mp, premium phone, wireless charging, ai, camera",
+        "price": 79999,
+        "stock": 16,
+        "rating": 4.9
+    },
+    {
+        "id": "mobile_p7",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Fold",
+        "content": "Product Name: NovaPhone Fold\nBrand: Nova\nSeries: NovaPhone\nModel: Fold\nCategory: Mobile\nDescription: Premium foldable smartphone designed for multitasking, productivity and immersive entertainment.\nPrice: ₹129,999\nRating: 4.8/5 (1743 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Titanium Black, Silver\nKey Specifications: 7.8-inch Foldable LTPO AMOLED, 6.3-inch Cover Display, Snapdragon Elite-class Processor, 16GB LPDDR5X RAM, 512GB Storage, Triple 50MP Camera System, Wireless Charging\nRecommended For: Business, Productivity, Multitasking\nSearch Keywords: foldable, productivity, business, multitasking, premium",
+        "price": 129999,
+        "stock": 11,
+        "rating": 4.8
+    },
+    {
+        "id": "mobile_p8",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Compact",
+        "content": "Product Name: NovaPhone Compact\nBrand: Nova\nSeries: NovaPhone\nModel: Compact\nCategory: Mobile\nDescription: Compact flagship smartphone offering premium performance in a comfortable one-handed design.\nPrice: ₹54,999\nRating: 4.8/5 (2834 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Silver, Green\nKey Specifications: 6.1-inch LTPO AMOLED, Snapdragon Elite-class Processor, 12GB LPDDR5X RAM, 256GB Storage, 50MP OIS Camera, Wireless Charging\nRecommended For: Travel, Photography, Everyday Use\nSearch Keywords: compact phone, small flagship, travel, camera, premium",
+        "price": 54999,
+        "stock": 27,
+        "rating": 4.8
+    },
+    {
+        "id": "mobile_p9",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Business",
+        "content": "Product Name: NovaPhone Business\nBrand: Nova\nSeries: NovaPhone\nModel: Business\nCategory: Mobile\nDescription: Business-oriented smartphone focused on enterprise security, productivity and reliable communication.\nPrice: ₹59,999\nRating: 4.7/5 (1987 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Black, Grey\nKey Specifications: 6.7-inch AMOLED Display, Enterprise Security Suite, 12GB RAM, 256GB Storage, 6000mAh Battery, Wi-Fi 7\nRecommended For: Business, Corporate, Productivity\nSearch Keywords: business phone, enterprise, security, office, productivity",
+        "price": 59999,
+        "stock": 21,
+        "rating": 4.7
+    },
+    {
+        "id": "mobile_p10",
+        "type": "product",
+        "category": "mobile",
+        "title": "NovaPhone Explorer",
+        "content": "Product Name: NovaPhone Explorer\nBrand: Nova\nSeries: NovaPhone\nModel: Explorer\nCategory: Mobile\nDescription: Rugged smartphone engineered for outdoor adventures, field work and harsh environments.\nPrice: ₹45,999\nRating: 4.7/5 (1462 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Black, Orange\nKey Specifications: MIL-STD-810H Certified, IP69 Rating, 6500mAh Battery, 8GB RAM, 256GB Storage, Satellite SOS Support\nRecommended For: Adventure, Construction, Field Work\nSearch Keywords: rugged phone, outdoor, waterproof, ip69, durable",
+        "price": 45999,
+        "stock": 18,
+        "rating": 4.7
+    },
+    {
+        "id": "wearables_p1",
+        "type": "product",
+        "category": "wearables",
+        "title": "NovaFit Band",
+        "content": "Product Name: NovaFit Band\nBrand: Nova\nSeries: NovaFit\nModel: Band\nCategory: Wearables\nDescription: Lightweight fitness band offering all-day activity tracking, sleep monitoring and excellent battery life.\nPrice: ₹2,499\nRating: 4.5/5 (9184 verified reviews)\nAvailability: In Stock\nWarranty: 1 Year\nLaunch Year: 2025\nAvailable Colours: Black, Blue, Pink\nKey Specifications: AMOLED Display, Heart Rate Sensor, SpO2 Monitoring, Sleep Tracking, 10-Day Battery\nRecommended For: Fitness, Walking, Students\nSearch Keywords: fitness band, health, sleep, step tracker, budget wearable",
+        "price": 2499,
+        "stock": 74,
+        "rating": 4.5
+    },
+    {
+        "id": "wearables_p2",
+        "type": "product",
+        "category": "wearables",
+        "title": "NovaWatch Lite",
+        "content": "Product Name: NovaWatch Lite\nBrand: Nova\nSeries: NovaWatch\nModel: Lite\nCategory: Wearables\nDescription: Affordable smartwatch combining fitness tracking, Bluetooth calling and smart notifications.\nPrice: ₹5,999\nRating: 4.6/5 (4837 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Silver, Blue\nKey Specifications: 1.8-inch AMOLED, Bluetooth Calling, GPS, SpO2, 7-Day Battery\nRecommended For: Daily Wear, Fitness, Students\nSearch Keywords: smartwatch, bluetooth calling, fitness, gps, wearable",
+        "price": 5999,
+        "stock": 53,
+        "rating": 4.6
+    },
+    {
+        "id": "wearables_p3",
+        "type": "product",
+        "category": "wearables",
+        "title": "NovaWatch Pro",
+        "content": "Product Name: NovaWatch Pro\nBrand: Nova\nSeries: NovaWatch\nModel: Pro\nCategory: Wearables\nDescription: Premium smartwatch offering advanced health monitoring, GPS navigation and productivity features.\nPrice: ₹11,999\nRating: 4.8/5 (3714 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Silver, Titanium\nKey Specifications: 1.92-inch AMOLED, Dual-Band GPS, ECG, Blood Oxygen Sensor, Stress Monitoring, Wireless Charging, 10-Day Battery\nRecommended For: Professionals, Fitness, Health Monitoring\nSearch Keywords: premium smartwatch, ecg, gps, health, wearable",
+        "price": 11999,
+        "stock": 34,
+        "rating": 4.8
+    },
+    {
+        "id": "wearables_p4",
+        "type": "product",
+        "category": "wearables",
+        "title": "NovaWatch Ultra",
+        "content": "Product Name: NovaWatch Ultra\nBrand: Nova\nSeries: NovaWatch\nModel: Ultra\nCategory: Wearables\nDescription: Flagship adventure smartwatch engineered for extreme sports, hiking and endurance athletes.\nPrice: ₹24,999\nRating: 4.9/5 (2198 verified reviews)\nAvailability: In Stock\nWarranty: 3 Years\nLaunch Year: 2026\nAvailable Colours: Titanium Grey, Titanium Black\nKey Specifications: Titanium Body, Military Grade Durability, Dual-Band GPS, LTE Connectivity, 14-Day Battery, Offline Maps, Depth Sensor\nRecommended For: Adventure, Hiking, Triathlon\nSearch Keywords: adventure watch, gps, outdoor, sports, ultra",
+        "price": 24999,
+        "stock": 19,
+        "rating": 4.9
+    },
+    {
+        "id": "wearables_p5",
+        "type": "product",
+        "category": "wearables",
+        "title": "Nova Health Tracker",
+        "content": "Product Name: Nova Health Tracker\nBrand: Nova\nSeries: NovaHealth\nModel: Tracker\nCategory: Wearables\nDescription: Dedicated health wearable focused on continuous wellness monitoring and preventive healthcare insights.\nPrice: ₹7,999\nRating: 4.7/5 (2864 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Blue\nKey Specifications: ECG, HRV Analysis, Blood Oxygen, Stress Detection, Sleep Analysis, 7-Day Battery\nRecommended For: Healthcare, Wellness, Senior Citizens\nSearch Keywords: health tracker, ecg, heart rate, wellness, sleep",
+        "price": 7999,
+        "stock": 41,
+        "rating": 4.7
+    },
+    {
+        "id": "wearables_p6",
+        "type": "product",
+        "category": "wearables",
+        "title": "Nova Sport Watch",
+        "content": "Product Name: Nova Sport Watch\nBrand: Nova\nSeries: NovaSport\nModel: Sport\nCategory: Wearables\nDescription: Sports smartwatch designed for runners, cyclists and endurance athletes requiring detailed performance metrics.\nPrice: ₹9,999\nRating: 4.8/5 (2675 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, Orange, Blue\nKey Specifications: VO2 Max Tracking, Dual GPS, Training Analytics, Heart Rate, Water Resistance 5ATM, 10-Day Battery\nRecommended For: Running, Cycling, Sports\nSearch Keywords: sports watch, running, cycling, training, gps",
+        "price": 9999,
+        "stock": 37,
+        "rating": 4.8
+    },
+    {
+        "id": "wearables_p7",
+        "type": "product",
+        "category": "wearables",
+        "title": "Nova Ring",
+        "content": "Product Name: Nova Ring\nBrand: Nova\nSeries: NovaRing\nModel: Smart Ring\nCategory: Wearables\nDescription: Premium smart ring delivering continuous health tracking and sleep analysis in a compact form factor.\nPrice: ₹18,999\nRating: 4.7/5 (1387 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Silver, Black, Gold\nKey Specifications: Heart Rate, Sleep Tracking, HRV Monitoring, Temperature Sensor, 7-Day Battery\nRecommended For: Health, Sleep, Minimalists\nSearch Keywords: smart ring, sleep, wellness, health, ring wearable",
+        "price": 18999,
+        "stock": 15,
+        "rating": 4.7
+    },
+    {
+        "id": "wearables_p8",
+        "type": "product",
+        "category": "wearables",
+        "title": "Nova Kids Watch",
+        "content": "Product Name: Nova Kids Watch\nBrand: Nova\nSeries: NovaWatch\nModel: Kids\nCategory: Wearables\nDescription: GPS-enabled smartwatch built for children's safety with communication and parental control features.\nPrice: ₹4,999\nRating: 4.5/5 (2043 verified reviews)\nAvailability: In Stock\nWarranty: 1 Year\nLaunch Year: 2025\nAvailable Colours: Blue, Pink, Green\nKey Specifications: GPS Tracking, SOS Button, Video Calling, Parental Controls, IP68 Water Resistance\nRecommended For: Children, School, Family\nSearch Keywords: kids watch, gps, safety, parents, children",
+        "price": 4999,
+        "stock": 58,
+        "rating": 4.5
+    },
+    {
+        "id": "accessories_p1",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova Mechanical Keyboard",
+        "content": "Product Name: Nova Mechanical Keyboard\nBrand: Nova\nSeries: NovaKeys\nModel: Mechanical Pro\nCategory: Accessories\nDescription: Premium mechanical keyboard featuring hot-swappable switches, per-key RGB lighting and an aluminium chassis.\nPrice: ₹6,499\nRating: 4.8/5 (5136 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, White\nKey Specifications: Hot-swappable Switches, Per-Key RGB, USB-C, N-Key Rollover, Aluminium Frame, Detachable Cable\nRecommended For: Programming, Gaming, Office\nSearch Keywords: mechanical keyboard, rgb, gaming, typing, programming",
+        "price": 6499,
+        "stock": 48,
+        "rating": 4.8
+    },
+    {
+        "id": "accessories_p2",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova Gaming Mouse",
+        "content": "Product Name: Nova Gaming Mouse\nBrand: Nova\nSeries: NovaAim\nModel: Elite\nCategory: Accessories\nDescription: Ultra-light gaming mouse designed for competitive gaming with exceptional tracking accuracy.\nPrice: ₹2,999\nRating: 4.7/5 (7348 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black, White\nKey Specifications: 26000 DPI Optical Sensor, Ultra-Lightweight Design, 8 Programmable Buttons, RGB Lighting, 1000Hz Polling Rate\nRecommended For: Gaming, Esports, Design\nSearch Keywords: gaming mouse, rgb, esports, high dpi, lightweight",
+        "price": 2999,
+        "stock": 76,
+        "rating": 4.7
+    },
+    {
+        "id": "accessories_p3",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova Webcam Pro",
+        "content": "Product Name: Nova Webcam Pro\nBrand: Nova\nSeries: NovaVision\nModel: Pro\nCategory: Accessories\nDescription: Professional webcam delivering crystal-clear 4K video for meetings, streaming and online teaching.\nPrice: ₹5,499\nRating: 4.6/5 (2849 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black\nKey Specifications: 4K Resolution, HDR, Auto Focus, Dual Noise-Cancelling Microphones, USB Plug-and-Play\nRecommended For: Meetings, Streaming, Teaching\nSearch Keywords: webcam, 4k, streaming, zoom, online meetings",
+        "price": 5499,
+        "stock": 42,
+        "rating": 4.6
+    },
+    {
+        "id": "accessories_p4",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova USB-C Dock",
+        "content": "Product Name: Nova USB-C Dock\nBrand: Nova\nSeries: NovaDock\nModel: 11-in-1\nCategory: Accessories\nDescription: Professional USB-C docking station expanding laptops into full desktop workstations.\nPrice: ₹7,999\nRating: 4.7/5 (1968 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Space Grey\nKey Specifications: HDMI, DisplayPort, Gigabit Ethernet, SD Card Reader, 100W Power Delivery, 3 USB-A Ports, USB-C Data Port\nRecommended For: Office, Professionals, Developers\nSearch Keywords: usb dock, usb-c hub, docking station, office, display",
+        "price": 7999,
+        "stock": 34,
+        "rating": 4.7
+    },
+    {
+        "id": "accessories_p5",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova SSD 1TB",
+        "content": "Product Name: Nova SSD 1TB\nBrand: Nova\nSeries: NovaStorage\nModel: Gen4 1TB\nCategory: Accessories\nDescription: High-speed PCIe Gen4 NVMe SSD designed for gaming, content creation and professional workloads.\nPrice: ₹8,999\nRating: 4.9/5 (4317 verified reviews)\nAvailability: In Stock\nWarranty: 5 Years\nLaunch Year: 2026\nAvailable Colours: Black\nKey Specifications: 1TB Capacity, 7000 MB/s Read, 6500 MB/s Write, PCIe Gen4 x4, M.2 2280, 5-Year Warranty\nRecommended For: Gaming, Editing, Storage Upgrade\nSearch Keywords: ssd, nvme, pcie gen4, gaming, storage",
+        "price": 8999,
+        "stock": 52,
+        "rating": 4.9
+    },
+    {
+        "id": "accessories_p6",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova SSD 2TB Pro",
+        "content": "Product Name: Nova SSD 2TB Pro\nBrand: Nova\nSeries: NovaStorage\nModel: Pro 2TB\nCategory: Accessories\nDescription: Professional NVMe SSD engineered for AI datasets, 4K editing and enterprise storage performance.\nPrice: ₹16,999\nRating: 4.9/5 (2684 verified reviews)\nAvailability: In Stock\nWarranty: 5 Years\nLaunch Year: 2026\nAvailable Colours: Black\nKey Specifications: 2TB Capacity, 7400 MB/s Read, 7000 MB/s Write, PCIe Gen4, DRAM Cache, Hardware Encryption\nRecommended For: AI, Video Editing, Professional Workstations\nSearch Keywords: ssd, 2tb, nvme, professional, fast storage",
+        "price": 16999,
+        "stock": 31,
+        "rating": 4.9
+    },
+    {
+        "id": "accessories_p7",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova GaN Charger 100W",
+        "content": "Product Name: Nova GaN Charger 100W\nBrand: Nova\nSeries: NovaCharge\nModel: GaN 100\nCategory: Accessories\nDescription: Compact Gallium Nitride fast charger supporting laptops, tablets and smartphones.\nPrice: ₹3,999\nRating: 4.8/5 (5874 verified reviews)\nAvailability: In Stock\nWarranty: 18 Months\nLaunch Year: 2026\nAvailable Colours: White, Black\nKey Specifications: 100W USB-C PD, Dual USB-C, USB-A, GaN Technology, Universal Voltage\nRecommended For: Travel, Professionals, Students\nSearch Keywords: gan charger, usb-c, 100w, fast charging, travel",
+        "price": 3999,
+        "stock": 87,
+        "rating": 4.8
+    },
+    {
+        "id": "accessories_p8",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova PowerBank 30000",
+        "content": "Product Name: Nova PowerBank 30000\nBrand: Nova\nSeries: NovaPower\nModel: 30000\nCategory: Accessories\nDescription: High-capacity power bank capable of charging laptops, tablets and smartphones multiple times.\nPrice: ₹4,999\nRating: 4.8/5 (6423 verified reviews)\nAvailability: In Stock\nWarranty: 18 Months\nLaunch Year: 2026\nAvailable Colours: Black\nKey Specifications: 30000mAh, 65W Power Delivery, USB-C, Dual USB-A, LED Battery Display\nRecommended For: Travel, Business, Outdoor\nSearch Keywords: powerbank, portable charger, usb-c pd, travel, battery",
+        "price": 4999,
+        "stock": 65,
+        "rating": 4.8
+    },
+    {
+        "id": "accessories_p9",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova Laptop Cooling Pad",
+        "content": "Product Name: Nova Laptop Cooling Pad\nBrand: Nova\nSeries: NovaCool\nModel: X5\nCategory: Accessories\nDescription: Laptop cooling pad reducing temperatures during gaming and intensive workloads.\nPrice: ₹2,499\nRating: 4.5/5 (3251 verified reviews)\nAvailability: In Stock\nWarranty: 1 Year\nLaunch Year: 2025\nAvailable Colours: Black\nKey Specifications: 5 Cooling Fans, RGB Lighting, Adjustable Height, USB Powered, Supports 17-inch Laptops\nRecommended For: Gaming, Engineering, Editing\nSearch Keywords: cooling pad, laptop cooling, gaming, thermal",
+        "price": 2499,
+        "stock": 58,
+        "rating": 4.5
+    },
+    {
+        "id": "accessories_p10",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova Ergonomic Laptop Stand",
+        "content": "Product Name: Nova Ergonomic Laptop Stand\nBrand: Nova\nSeries: NovaDesk\nModel: Lift\nCategory: Accessories\nDescription: Adjustable aluminium laptop stand improving posture, airflow and workspace ergonomics.\nPrice: ₹1,999\nRating: 4.7/5 (4028 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Silver, Black\nKey Specifications: Aluminium Alloy, Foldable, Height Adjustable, Anti-Slip Pads, Supports up to 17-inch Laptops\nRecommended For: Office, Students, Developers\nSearch Keywords: laptop stand, ergonomic, desk setup, office, productivity",
+        "price": 1999,
+        "stock": 61,
+        "rating": 4.7
+    },
+    {
+        "id": "accessories_p11",
+        "type": "product",
+        "category": "accessories",
+        "title": "Nova Wireless Presenter",
+        "content": "Product Name: Nova Wireless Presenter\nBrand: Nova\nSeries: NovaPresent\nModel: Pro\nCategory: Accessories\nDescription: Wireless presentation remote with laser pointer and long-range connectivity for professional presentations.\nPrice: ₹3,499\nRating: 4.6/5 (1482 verified reviews)\nAvailability: In Stock\nWarranty: 2 Years\nLaunch Year: 2026\nAvailable Colours: Black\nKey Specifications: 50m Wireless Range, Red Laser Pointer, USB Receiver, Plug-and-Play, Rechargeable Battery\nRecommended For: Teachers, Business, Presentations\nSearch Keywords: presenter, laser pointer, office, presentation, wireless",
+        "price": 3499,
+        "stock": 37,
+        "rating": 4.6
+    },
+    {
+        "id": "faq_1",
+        "type": "faq",
+        "category": "support",
+        "title": "How do I track my order?",
+        "content": "Customers can track orders from the My Orders page using the tracking ID provided after dispatch. Tracking updates are available in real time through our courier partners. An SMS and email notification with the tracking link is also sent once the order is dispatched."
+    },
+    {
+        "id": "faq_2",
+        "type": "faq",
+        "category": "support",
+        "title": "Can I cancel an order?",
+        "content": "Orders can be cancelled at any time before dispatch without any charges or penalties. Once dispatched, cancellation is not possible and customers must initiate a return after delivery. To cancel, visit the My Orders page or contact support between 9 AM and 9 PM IST."
+    },
+    {
+        "id": "faq_3",
+        "type": "faq",
+        "category": "support",
+        "title": "How do refunds work?",
+        "content": "Refunds are processed within 5 to 7 business days after the returned product passes quality inspection. The refund is credited to the original payment method used at checkout. UPI and bank transfer refunds may take an additional 2 to 3 working days depending on your bank. Products returned in a used, damaged, or incomplete condition may not qualify for a full refund."
+    },
+    {
+        "id": "faq_4",
+        "type": "faq",
+        "category": "support",
+        "title": "Do products come with warranty?",
+        "content": "Most ShopNova products include a standard one-year manufacturer warranty covering manufacturing defects. Premium products such as NovaBook Pro, NovaBook Ultra and Nova Studio Headphones include extended warranties of 2 to 5 years. Warranty does not cover physical damage, liquid damage, or unauthorised modifications. Warranty claims can be raised through the ShopNova warranty portal or by contacting customer support."
+    },
+    {
+        "id": "faq_5",
+        "type": "faq",
+        "category": "support",
+        "title": "Can I return opened products?",
+        "content": "Opened products may only be returned if they are defective, damaged upon delivery, or incorrectly sent. Products opened out of curiosity or change of mind are not eligible for return unless defective. Returns must be initiated within 30 days of delivery with the original packaging and all accessories included."
+    },
+    {
+        "id": "faq_6",
+        "type": "faq",
+        "category": "support",
+        "title": "What payment methods are accepted?",
+        "content": "ShopNova accepts UPI, debit cards, credit cards, net banking, EMI through supported banks, and cash on delivery for eligible orders. All online payments are secured through PCI-DSS compliant payment gateways. International cards may be subject to additional verification."
+    },
+    {
+        "id": "faq_7",
+        "type": "faq",
+        "category": "support",
+        "title": "How long does shipping take?",
+        "content": "Standard shipping takes 3 to 5 business days across most of India. Express shipping delivers within 1 to 2 business days in major cities including Mumbai, Delhi, Bengaluru, Hyderabad, Chennai and Pune. Remote and rural locations may require additional delivery time of 1 to 2 extra days. Tracking details are shared via SMS and email after dispatch."
+    },
+    {
+        "id": "faq_8",
+        "type": "faq",
+        "category": "support",
+        "title": "Do you ship across India?",
+        "content": "ShopNova delivers to most cities, towns and districts across India through trusted logistics partners. Some remote pin codes may have limited serviceability or longer delivery windows. You can check delivery availability by entering your pin code on the product page before placing an order."
+    },
+    {
+        "id": "faq_9",
+        "type": "faq",
+        "category": "support",
+        "title": "Can I exchange a product?",
+        "content": "Products can be exchanged within 7 days of delivery if they meet eligibility requirements. The item must be unused, in original packaging and accompanied by all accessories. Exchange requests can be raised through the My Orders section or by contacting support. The replacement unit is dispatched after the original item is picked up and inspected."
+    },
+    {
+        "id": "faq_10",
+        "type": "faq",
+        "category": "support",
+        "title": "What if I receive a damaged item?",
+        "content": "Customers should report damaged products within 48 hours of delivery by contacting support with photographs of the damage. ShopNova will arrange a free pickup and issue a replacement or full refund after verification. Do not discard the original packaging as it may be required during the pickup process."
+    },
+    {
+        "id": "faq_11",
+        "type": "faq",
+        "category": "support",
+        "title": "What if I receive the wrong item?",
+        "content": "Incorrectly delivered products qualify for a free replacement with priority dispatch. Please report the issue within 48 hours of delivery along with a photograph of the received item. ShopNova will arrange a free pickup of the wrong item and dispatch the correct product within 2 to 3 business days."
+    },
+    {
+        "id": "faq_12",
+        "type": "faq",
+        "category": "support",
+        "title": "Can I pay via EMI?",
+        "content": "EMI options are available for eligible products through supported credit cards and bank partners. No-cost EMI plans are available on select products for tenures of 3, 6 and 12 months. EMI availability is shown on the product page and confirmed at checkout based on your card and bank."
+    },
+    {
+        "id": "faq_13",
+        "type": "faq",
+        "category": "support",
+        "title": "Do you offer cash on delivery?",
+        "content": "Cash on delivery is available for selected products and serviceable pin codes. COD orders have a maximum order value limit. Availability is confirmed at checkout based on your delivery location and the product category."
+    },
+    {
+        "id": "faq_14",
+        "type": "faq",
+        "category": "support",
+        "title": "How do I contact support?",
+        "content": "ShopNova customer support is available through live chat, email and phone between 9 AM and 9 PM IST on all days. For faster resolution, use the live chat option on the website or app. Order-related queries can also be raised directly from the My Orders page."
+    },
+    {
+        "id": "faq_15",
+        "type": "faq",
+        "category": "support",
+        "title": "Can I update my delivery address?",
+        "content": "Delivery addresses can be updated before the order is dispatched through the My Orders page or by contacting support. Once the order has been dispatched, address changes are not possible. For urgent changes, contact support immediately with your order ID."
+    },
+    {
+        "id": "faq_16",
+        "type": "faq",
+        "category": "support",
+        "title": "When will my refund arrive?",
+        "content": "Refunds are typically processed within 5 to 7 business days after the return is approved. Credit card refunds may take an additional 3 to 5 business days to reflect depending on your bank. UPI refunds are usually faster and may reflect within 2 to 3 business days."
+    },
+    {
+        "id": "faq_17",
+        "type": "faq",
+        "category": "support",
+        "title": "Can I preorder products?",
+        "content": "Preorders are available for selected upcoming devices and launch editions. Preorder amounts are charged at the time of booking and the product is dispatched on or after the official launch date. Preorder customers receive priority dispatch and early delivery where available."
+    },
+    {
+        "id": "faq_18",
+        "type": "faq",
+        "category": "support",
+        "title": "Do you sell refurbished devices?",
+        "content": "ShopNova primarily sells brand new products with full manufacturer warranty. Certified refurbished products may occasionally be listed under a separate Refurbished section with clearly stated condition grades. All refurbished products undergo quality testing before listing."
+    },
+    {
+        "id": "faq_19",
+        "type": "faq",
+        "category": "support",
+        "title": "How does express shipping work?",
+        "content": "Express shipping prioritises order processing and reduces delivery time to 1 to 2 business days in supported cities. Express shipping is available at an additional fee shown at checkout. Orders placed before 12 PM are prioritised for same-day dispatch under the express plan."
+    },
+    {
+        "id": "faq_20",
+        "type": "faq",
+        "category": "support",
+        "title": "Do accessories have warranty?",
+        "content": "Most ShopNova accessories include a 6-month manufacturer warranty unless stated otherwise on the product page. Premium accessories such as the Nova Mechanical Keyboard and Nova USB-C Dock carry a 2-year warranty. Warranty claims for accessories follow the same process as other products through the warranty portal."
+    },
+    {
+        "id": "faq_21",
+        "type": "faq",
+        "category": "support",
+        "title": "Can businesses place bulk orders?",
+        "content": "Business customers can request volume pricing and quotations through ShopNova's enterprise sales team. Bulk orders may qualify for special pricing, priority fulfillment and dedicated account management. Contact the enterprise team through the Business Enquiry form on the website."
+    },
+    {
+        "id": "faq_22",
+        "type": "faq",
+        "category": "support",
+        "title": "How are returns inspected?",
+        "content": "Returned products undergo a quality inspection at the ShopNova fulfilment centre to verify condition, completeness and reported defects. Inspection typically takes 1 to 2 business days after the item is received. Refund or replacement is processed immediately after a successful inspection."
+    },
+    {
+        "id": "faq_23",
+        "type": "faq",
+        "category": "support",
+        "title": "What happens if delivery fails?",
+        "content": "If a delivery attempt fails, the courier will reattempt delivery on the next business day. After two failed attempts, the package is held at the nearest courier facility for 3 days before being returned to ShopNova. Customers can coordinate with support or the courier directly to reschedule delivery."
+    },
+    {
+        "id": "faq_24",
+        "type": "faq",
+        "category": "support",
+        "title": "Can I schedule delivery?",
+        "content": "Scheduled delivery is available in selected cities for eligible products. Customers can choose a preferred delivery date and time slot during checkout where the option is available. Rescheduling is also possible through the My Orders page before the order is out for delivery."
+    },
+    {
+        "id": "faq_25",
+        "type": "faq",
+        "category": "support",
+        "title": "How do I download invoices?",
+        "content": "Invoices are generated automatically once the order is delivered and can be downloaded from the My Orders section of your account. GST invoices are available for business purchases. If an invoice is missing or incorrect, contact support with your order ID for assistance."
+    },
+    {
+        "id": "faq_26",
+        "type": "faq",
+        "category": "support",
+        "title": "Do you sell TVs or home appliances?",
+        "content": "ShopNova specialises in personal electronics including laptops, smartphones, audio products, wearables and accessories. We do not currently carry televisions, home appliances, refrigerators, washing machines or furniture. Our catalogue is focused on portable and personal technology products."
+    },
+    {
+        "id": "faq_27",
+        "type": "faq",
+        "category": "support",
+        "title": "Do you sell gaming chairs or desks?",
+        "content": "ShopNova does not sell furniture including gaming chairs, desks or tables. We do carry electronics accessories relevant to gaming and desk setups such as the Nova Mechanical Keyboard, Nova Gaming Mouse, Nova Ergonomic Laptop Stand and Nova Laptop Cooling Pad."
+    },
+    {
+        "id": "faq_28",
+        "type": "faq",
+        "category": "support",
+        "title": "Do you sell cameras or DSLRs?",
+        "content": "ShopNova does not currently carry dedicated cameras, DSLRs or mirrorless cameras. We do carry smartphones with professional-grade camera systems such as the NovaPhone Edge with a 50MP Sony sensor and the NovaPhone Ultra with a 200MP main camera, which are suitable for most photography needs."
+    },
+    {
+        "id": "faq_29",
+        "type": "faq",
+        "category": "support",
+        "title": "Do you sell printers or scanners?",
+        "content": "ShopNova does not carry printers, scanners or multifunction devices. Our catalogue focuses on personal electronics including laptops, smartphones, audio, wearables and productivity accessories."
+    },
+    {
+        "id": "policy_1",
+        "type": "policy",
+        "category": "policy",
+        "title": "Refund Policy",
+        "content": "ShopNova processes refunds within 5 to 7 business days after the returned product passes quality inspection. Refunds are credited to the original payment method used at the time of purchase. UPI and bank transfer refunds may take an additional 2 to 3 working days depending on the customer's bank. Products returned in a damaged, used, or incomplete condition may not qualify for a full refund. Refund status can be tracked through the My Orders section."
+    },
+    {
+        "id": "policy_2",
+        "type": "policy",
+        "category": "policy",
+        "title": "Return Policy",
+        "content": "Products may be returned within 30 days of delivery if unused and in original packaging with all accessories and documentation included. Opened products are eligible for return only if defective, damaged upon delivery, or incorrectly sent. Returns must be initiated through the My Orders page or by contacting customer support. ShopNova arranges a free pickup for eligible returns. Once the item is received and inspected, a refund or replacement is issued within 2 business days."
+    },
+    {
+        "id": "policy_3",
+        "type": "policy",
+        "category": "policy",
+        "title": "Shipping Policy",
+        "content": "Standard shipping takes 3 to 5 business days across most of India. Express shipping is available in major cities and delivers within 1 to 2 business days at an additional charge. Free standard shipping applies to all orders above Rs 999. Tracking details are shared via SMS and email after dispatch. Remote and rural locations may experience delivery times of up to 7 business days."
+    },
+    {
+        "id": "policy_4",
+        "type": "policy",
+        "category": "policy",
+        "title": "Warranty Policy",
+        "content": "Most ShopNova products include a standard one-year manufacturer warranty covering manufacturing defects and hardware failures under normal use. Premium products including select NovaBook laptops and NovaHead headphones carry extended warranties of 2 to 5 years as stated on the product page. Warranty does not cover physical damage, liquid damage, unauthorised repairs or modifications. Warranty claims must be raised through the ShopNova warranty portal with proof of purchase. On-site warranty service is available for select enterprise products."
+    },
+    {
+        "id": "policy_5",
+        "type": "policy",
+        "category": "policy",
+        "title": "Cancellation Policy",
+        "content": "Orders may be cancelled at any time before dispatch without any penalty or cancellation fee. Once the order has been dispatched, cancellation is no longer possible and customers must wait for delivery to initiate a return. For prepaid orders, refunds after cancellation are processed within 5 to 7 business days to the original payment method. Partial cancellations are supported for orders containing multiple items where only some items have been dispatched."
+    },
+    {
+        "id": "policy_6",
+        "type": "policy",
+        "category": "policy",
+        "title": "Exchange Policy",
+        "content": "Eligible products may be exchanged within 7 days of delivery for a different variant, colour or compatible model. The item must be unused, in original packaging and accompanied by all accessories and documentation. Exchange requests are raised through the My Orders section. ShopNova arranges pickup of the original item and dispatches the replacement after inspection. Price differences in exchanges are charged or refunded accordingly."
+    },
+    {
+        "id": "policy_7",
+        "type": "policy",
+        "category": "policy",
+        "title": "COD Policy",
+        "content": "Cash on Delivery is available for selected products and serviceable pin codes across India. COD orders carry a maximum order value as displayed at checkout. Payment is collected by the delivery partner at the time of delivery. COD is not available for certain high-value products, pre-order items or express delivery orders."
+    },
+    {
+        "id": "policy_8",
+        "type": "policy",
+        "category": "policy",
+        "title": "EMI Policy",
+        "content": "EMI options are available on eligible purchases through supported credit cards and bank partners at checkout. No-cost EMI plans are offered on select products for tenures of 3, 6 and 12 months. Standard EMI with applicable interest is available for longer tenures through partner banks. EMI availability depends on the customer's card issuer and is confirmed at the payment step."
+    },
+    {
+        "id": "policy_9",
+        "type": "policy",
+        "category": "policy",
+        "title": "Privacy Policy",
+        "content": "ShopNova collects customer information solely for the purpose of processing orders, providing support and improving services. Customer data is never sold or shared with third parties for marketing purposes. All data is stored securely and handled in accordance with applicable data protection regulations. Customers may request deletion of their account and associated data by contacting support."
+    },
+    {
+        "id": "policy_10",
+        "type": "policy",
+        "category": "policy",
+        "title": "Bulk Orders Policy",
+        "content": "Business customers and institutions can place bulk orders through ShopNova's enterprise sales channel. Bulk purchases of 5 units or more may qualify for volume pricing, dedicated account management and priority fulfillment. GST invoices are provided for all business orders. Enterprise enquiries can be submitted through the Business Orders form on the ShopNova website."
+    }
 ]
