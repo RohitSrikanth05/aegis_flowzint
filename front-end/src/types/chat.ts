@@ -1,3 +1,5 @@
+import type { SourceDoc, PriorityRow } from "./product_intel";
+
 export type ChatRole = "user" | "bot";
 export type ChatTone = "normal" | "alert" | "info";
 
@@ -12,4 +14,8 @@ export interface ChatMessage {
   trustScore?: number;
   confidenceScore?: number;
   mode?: string;
-}
+  // Product Intelligence fields (only on PRODUCT_INTEL intent messages)
+  route?: string;
+  sources?: SourceDoc[];
+  priorityTable?: PriorityRow[];
+}

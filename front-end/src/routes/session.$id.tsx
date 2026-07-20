@@ -8,7 +8,22 @@ export const Route = createFileRoute("/session/$id")({
   component: SessionRoute,
 });
 
+import { useAuth } from "@/hooks/useAuth";
+import { useEffect } from "react";
+import { useNavigate } from "@tanstack/react-router";
+
 function SessionRoute() {
   const { id } = Route.useParams();
-  return <ChatView key={id} sessionId={id} />;
+  const { isAuthenticated, isAdmin } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate({ to: "/login" });
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (!isAuthenticated) return null;
+
+  return <ChatView key={id} sessionId={id} isAdmin={isAdmin} />;
 }

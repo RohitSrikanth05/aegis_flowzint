@@ -9,12 +9,17 @@ export interface ChatSession {
   messages: ChatMessage[];
 }
 
-const KEY = "aegis.sessions.v1";
+function getSessionKey(): string {
+  if (typeof window === "undefined") return "aegis.sessions.guest.v1";
+  const user = window.localStorage.getItem("aegis_username");
+  return user ? `aegis.sessions.${user.trim().toLowerCase()}.v1` : "aegis.sessions.guest.v1";
+}
 
 function read(): ChatSession[] {
   if (typeof window === "undefined") return [];
   try {
-    const raw = window.localStorage.getItem(KEY);
+    const key = getSessionKey();
+    const raw = window.localStorage.getItem(key);
     if (!raw) return [];
     const parsed = JSON.parse(raw) as ChatSession[];
     return Array.isArray(parsed) ? parsed : [];
@@ -25,16 +30,17 @@ function read(): ChatSession[] {
 
 function write(list: ChatSession[]) {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(KEY, JSON.stringify(list));
+  const key = getSessionKey();
+  window.localStorage.setItem(key, JSON.stringify(list));
 }
 
 export function useSessions() {
   const [sessions, setSessions] = useState<ChatSession[]>(() => read());
 
+  // Re-sync sessions when storage changes or user logs in / switches accounts
   useEffect(() => {
-    const onStorage = (e: StorageEvent) => {
-      if (e.key === KEY) setSessions(read());
-    };
+    setSessions(read());
+    const onStorage = () => setSessions(read());
     window.addEventListener("storage", onStorage);
     return () => window.removeEventListener("storage", onStorage);
   }, []);

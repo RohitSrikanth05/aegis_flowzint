@@ -7,6 +7,7 @@ const dot: Record<ActivityKind, string> = {
   alert: "bg-rose-400 shadow-[0_0_10px_rgba(244,63,94,0.7)]",
   info: "bg-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.7)]",
   learn: "bg-indigo-400 shadow-[0_0_10px_rgba(99,102,241,0.7)]",
+  intel: "bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.7)]",
 };
 
 export function ActivityFeed({ events }: { events: ActivityEvent[] }) {

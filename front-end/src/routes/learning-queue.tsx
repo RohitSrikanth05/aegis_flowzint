@@ -36,12 +36,28 @@ function confidenceColor(c: number) {
   return "text-rose-400";
 }
 
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "@tanstack/react-router";
+
 function LearningQueuePage() {
+  const { isAuthenticated, isAdmin } = useAuth();
+  const navigate = useNavigate();
+
   const [items, setItems] = useState<LearningQueueItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [actioning, setActioning] = useState<Record<number, boolean>>({});
   const [approvedAnswers, setApprovedAnswers] = useState<Record<number, string>>({});
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate({ to: "/login" });
+    } else if (isAdmin) {
+      navigate({ to: "/admin/learning-queue" });
+    } else {
+      navigate({ to: "/" });
+    }
+  }, [isAuthenticated, isAdmin, navigate]);
 
   const fetchItems = useCallback(async () => {
     setLoading(true);

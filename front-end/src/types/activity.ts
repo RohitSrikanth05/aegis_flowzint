@@ -1,4 +1,4 @@
-export type ActivityKind = "info" | "warn" | "alert" | "learn" | "ok";
+export type ActivityKind = "info" | "warn" | "alert" | "learn" | "ok" | "intel";
 
 export interface ActivityEvent {
   id: string;

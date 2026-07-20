@@ -9,6 +9,7 @@ from utils.database import (
     get_learning_queue_item_db,
     update_learning_queue_status_db,
     reset_all_sessions_db,
+    get_all_sessions_summary_db,
 )
 from services.knowledge_base.retriever import collection
 from services.ollama_client import chat_with_ollama
@@ -18,6 +19,15 @@ router = APIRouter()
 
 class ResetRequest(BaseModel):
     session_id: Optional[str] = None
+
+
+# ── GET /sessions & GET /admin/sessions ────────────────────────────────────────
+
+@router.get("/sessions")
+@router.get("/admin/sessions")
+async def get_admin_sessions_summary():
+    """Return overall system trust score summary and all user session trust metrics."""
+    return get_all_sessions_summary_db()
 
 
 # ── GET /learning-queue ──────────────────────────────────────────────────────

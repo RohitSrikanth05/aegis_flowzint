@@ -14,6 +14,11 @@ from services.trust_engine.escalation import TrustEscalation
 # Rohit's RAG pipeline
 from services.knowledge_base.pipeline import process_query
 
+# Product Intelligence pipeline
+from services.product_intel.pipeline import process_product_query
+
+from utils.database import set_session_score_and_mode, log_activity_db
+
 router = APIRouter()
 
 # One instance per application (they manage state per session_id internally)
@@ -48,6 +53,7 @@ PROMPT_EXTRACTION_REPLY = (
 async def chat_endpoint(request: ChatRequest):
     session_id = request.session_id or "default"
     user_message = request.message
+    username = request.username or "user"
     events = []
 
     # ── 1. Initialize trust session if first message ──────────────────────
@@ -67,6 +73,9 @@ async def chat_endpoint(request: ChatRequest):
             session_id, user_message, threats,
             result["score_before"], result["score_after"]
         )
+        set_session_score_and_mode(session_id, result["score_after"], result["mode"], username)
+        log_activity_db(username, session_id, "alert", f"Security Threat Detected: {', '.join(threats)}")
+
         events.append("Prompt extraction request blocked")
         events.append(f"Threats detected: {', '.join(threats)}")
         events.append(f"Trust score dropped: {result['score_before']} → {result['score_after']}")
@@ -92,6 +101,7 @@ async def chat_endpoint(request: ChatRequest):
             session_id, user_message, threats,
             result["score_before"], result["score_after"]
         )
+        log_activity_db(username, session_id, "alert", f"Threats detected: {', '.join(threats)}")
         events.append(f"Threats detected: {', '.join(threats)}")
         events.append(f"Trust score dropped: {result['score_before']} → {result['score_after']}")
     else:
@@ -103,16 +113,50 @@ async def chat_endpoint(request: ChatRequest):
 
     trust_score = result["score_after"]
     mode = result["mode"]
+    set_session_score_and_mode(session_id, trust_score, mode, username)
 
     if mode != "NORMAL":
         events.append(f"Session mode: {mode}")
 
-    # ── 4. Run RAG pipeline concurrently with intent classification ───────
+    # ── 4. Classify intent first, then branch on PRODUCT_INTEL ─────────────
     try:
-        rag_result, intent = await asyncio.gather(
-            process_query(user_message),
-            classify_intent(user_message),
+        intent = await classify_intent(user_message)
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Intent classification error: {str(e)}")
+
+    log_activity_db(username, session_id, "info", f"{intent} Intent Detected ('{user_message[:40]}')")
+
+    # ── 4a. PRODUCT_INTEL: dedicated pipeline, skip ShopNova RAG ────────────
+    if intent == "PRODUCT_INTEL":
+        try:
+            pi_result = await process_product_query(user_message)
+        except Exception as e:
+            raise HTTPException(status_code=502, detail=f"Product Intel pipeline error: {str(e)}")
+
+        events.append(f"Product Intelligence route: {pi_result.get('route', 'unknown')}")
+        events.append(f"Retrieved {len(pi_result.get('sources', []))} product signal sources")
+
+        history = get_session(session_id)
+        history.append({"role": "user", "content": user_message})
+        history.append({"role": "assistant", "content": pi_result["answer"]})
+        update_session(session_id, history)
+
+        return ChatResponse(
+            reply=pi_result["answer"],
+            intent=intent,
+            session_id=session_id,
+            trust_score=trust_score,
+            confidence_score=None,
+            mode=mode,
+            events=events,
+            route=pi_result.get("route"),
+            sources=pi_result.get("sources"),
+            priority_table=pi_result.get("priority_table"),
         )
+
+    # ── 4b. Standard ShopNova RAG pipeline ────────────────────────────────
+    try:
+        rag_result = await process_query(user_message)
     except Exception as e:
         raise HTTPException(status_code=502, detail=f"Pipeline error: {str(e)}")
 
@@ -132,11 +176,15 @@ async def chat_endpoint(request: ChatRequest):
     if retrieved_chunks:
         context_lines = []
         for chunk in retrieved_chunks:
-            context_lines.append(f"[{chunk.get('title', 'Info')}]: {chunk.get('content', '')}")
-        rag_context = "\nRelevant ShopNova Knowledge:\n" + "\n".join(context_lines) + "\n"
+            title = chunk.get("title", "Info")
+            content = chunk.get("content", "")
+            details = chunk.get("details", "")
+            details_str = f" [{details}]" if details else ""
+            context_lines.append(f"• {title}{details_str}: {content}")
+        rag_context = "\nRelevant ShopNova Product Knowledge & Policies:\n" + "\n".join(context_lines) + "\n"
 
     # ── 6. Get mode-specific system prompt with intent + context ──────────
-    base_system_prompt = escalation.get_system_prompt(mode)
+    base_system_prompt = escalation.get_system_prompt(mode, username)
     intent_addon = INTENT_ADDONS.get(intent, "")
     system_prompt = f"{base_system_prompt}\n\n{intent_addon}\n{rag_context}".strip()
 
@@ -168,4 +216,7 @@ async def chat_endpoint(request: ChatRequest):
         confidence_score=float(confidence_score) if confidence_score is not None else None,
         mode=mode,
         events=events,
+        route=None,
+        sources=None,
+        priority_table=None,
     )

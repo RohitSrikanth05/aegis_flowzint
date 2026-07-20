@@ -10,7 +10,7 @@ collection = client.get_or_create_collection(
 )
 
 
-async def retrieve(query, n_results=3):
+async def retrieve(query, n_results=5):
     def _query():
         return collection.query(
             query_texts=[query],
@@ -25,12 +25,20 @@ async def retrieve(query, n_results=3):
     metas = results.get("metadatas", [[]])[0]
 
     for doc, meta in zip(docs, metas):
+        # Format metadata attributes into a readable details string
+        details = []
+        for k in ["price", "rating", "stock", "warranty", "brand", "model", "release_year", "colors", "recommended_for"]:
+            if k in meta and meta[k]:
+                details.append(f"{k}: {meta[k]}")
+
         formatted.append(
             {
                 "content": doc,
                 "title": meta.get("title", ""),
                 "type": meta.get("type", ""),
-                "category": meta.get("category", "")
+                "category": meta.get("category", ""),
+                "details": ", ".join(details) if details else "",
+                "metadata": meta,
             }
         )
 

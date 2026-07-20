@@ -9,13 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as LearningQueueRouteImport } from './routes/learning-queue'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SessionIdRouteImport } from './routes/session.$id'
+import { Route as AdminLearningQueueRouteImport } from './routes/admin.learning-queue'
 
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LearningQueueRoute = LearningQueueRouteImport.update({
   id: '/learning-queue',
   path: '/learning-queue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -28,44 +41,93 @@ const SessionIdRoute = SessionIdRouteImport.update({
   path: '/session/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminLearningQueueRoute = AdminLearningQueueRouteImport.update({
+  id: '/learning-queue',
+  path: '/learning-queue',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/learning-queue': typeof LearningQueueRoute
+  '/login': typeof LoginRoute
+  '/admin/learning-queue': typeof AdminLearningQueueRoute
   '/session/$id': typeof SessionIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/learning-queue': typeof LearningQueueRoute
+  '/login': typeof LoginRoute
+  '/admin/learning-queue': typeof AdminLearningQueueRoute
   '/session/$id': typeof SessionIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/learning-queue': typeof LearningQueueRoute
+  '/login': typeof LoginRoute
+  '/admin/learning-queue': typeof AdminLearningQueueRoute
   '/session/$id': typeof SessionIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/learning-queue' | '/session/$id'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/learning-queue'
+    | '/login'
+    | '/admin/learning-queue'
+    | '/session/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/learning-queue' | '/session/$id'
-  id: '__root__' | '/' | '/learning-queue' | '/session/$id'
+  to:
+    | '/'
+    | '/admin'
+    | '/learning-queue'
+    | '/login'
+    | '/admin/learning-queue'
+    | '/session/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/learning-queue'
+    | '/login'
+    | '/admin/learning-queue'
+    | '/session/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   LearningQueueRoute: typeof LearningQueueRoute
+  LoginRoute: typeof LoginRoute
   SessionIdRoute: typeof SessionIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/learning-queue': {
       id: '/learning-queue'
       path: '/learning-queue'
       fullPath: '/learning-queue'
       preLoaderRoute: typeof LearningQueueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -82,12 +144,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SessionIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/learning-queue': {
+      id: '/admin/learning-queue'
+      path: '/learning-queue'
+      fullPath: '/admin/learning-queue'
+      preLoaderRoute: typeof AdminLearningQueueRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminLearningQueueRoute: typeof AdminLearningQueueRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminLearningQueueRoute: AdminLearningQueueRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   LearningQueueRoute: LearningQueueRoute,
+  LoginRoute: LoginRoute,
   SessionIdRoute: SessionIdRoute,
 }
 export const routeTree = rootRouteImport

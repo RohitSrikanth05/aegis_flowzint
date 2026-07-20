@@ -7,7 +7,7 @@ const STROKE = 14;
 const R = (SIZE - STROKE) / 2;
 const C = 2 * Math.PI * R;
 
-export function TrustGauge({ score }: { score: number }) {
+export function TrustGauge({ score, titleOverride }: { score: number; titleOverride?: string }) {
   const mv = useMotionValue(score);
   const [display, setDisplay] = useState(score);
   const dash = useTransform(mv, (v) => C - (C * v) / 100);
@@ -53,7 +53,9 @@ export function TrustGauge({ score }: { score: number }) {
       </svg>
       <div className="absolute inset-0 grid place-items-center text-center">
         <div>
-          <div className="text-[10px] uppercase tracking-[0.25em] text-white/40">Trust Score</div>
+          <div className="text-[10px] uppercase tracking-[0.25em] text-white/40">
+            {titleOverride ?? "Trust Score"}
+          </div>
           <div
             className="mt-1 text-6xl font-bold tabular-nums"
             style={{ color, textShadow: `0 0 30px ${color}55` }}
